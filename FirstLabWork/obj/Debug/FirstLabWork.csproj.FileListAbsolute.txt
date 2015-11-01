@@ -1,0 +1,120 @@
+C:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe.config
+C:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe
+C:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.pdb
+C:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csprojResolveAssemblyReference.cache
+C:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Form1.resources
+C:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.resources
+C:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
+C:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.exe
+C:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.pdb
+D:\Универ\3 курс\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe.config
+D:\Универ\3 курс\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.exe
+D:\Универ\3 курс\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.pdb
+D:\Универ\3 курс\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe
+D:\Универ\3 курс\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.pdb
+D:\Универ\3 курс\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csprojResolveAssemblyReference.cache
+D:\Универ\3 курс\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Form1.resources
+D:\Универ\3 курс\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.resources
+D:\Универ\3 курс\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe.config
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.exe
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.pdb
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.pdb
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csprojResolveAssemblyReference.cache
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Form1.resources
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.resources
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe.config
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.exe
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.pdb
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.pdb
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\ZedGraph.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\ZedGraph.xml
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\de\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\es\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\fr\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\hu\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\it\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\ja\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\pt\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\ru\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\sk\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\sv\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\tr\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\zh-cn\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\zh-tw\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csprojResolveAssemblyReference.cache
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.DisplayForm.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.EmpiricFunction.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Form1.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.DisplayForm.resources
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.EmpiricFunction.resources
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\ZedGraph.xml
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\de\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\es\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\fr\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\hu\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\it\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\ja\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\pt\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\ru\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\sk\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\sv\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\tr\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\zh-cn\ZedGraph.resources.dll
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\bin\Debug\zh-tw\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe.config
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.exe
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.pdb
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.pdb
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\ZedGraph.xml
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\de\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\es\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\fr\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\hu\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\it\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\ja\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\pt\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\ru\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\sk\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\sv\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\tr\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\zh-cn\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\bin\Debug\zh-tw\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csprojResolveAssemblyReference.cache
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.DisplayForm.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.EmpiricFunction.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Form1.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\123\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe.config
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.exe
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.pdb
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.exe
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\FirstLabWork.pdb
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\ZedGraph.xml
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\de\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\es\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\fr\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\hu\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\it\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\ja\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\pt\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\ru\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\sk\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\sv\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\tr\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\zh-cn\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\bin\Debug\zh-tw\ZedGraph.resources.dll
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csprojResolveAssemblyReference.cache
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.DisplayForm.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.EmpiricFunction.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Form1.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.resources
+c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
+D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Form2.resources
