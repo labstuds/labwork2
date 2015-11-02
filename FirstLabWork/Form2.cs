@@ -12,12 +12,14 @@ namespace FirstLabWork
 {
     public partial class Form2 : Form
     {
-        Form3 hiTable = null;
+        List<double> probabilities; // Вероятности
         List<double[]> LaplasTable = new List<double[]>(); // Таблица значений функции Лапласа
         LinearInterval lastReadedInterval;
         double lastCount;
         IntervalVariationStatisticSeries intSeries;
         GroupedRelativeArequenceSeries groupedSeries;
+        
+        
         public Form2()
         {
             InitializeComponent();
@@ -251,19 +253,10 @@ namespace FirstLabWork
             StreamReader srLaplasTable = new StreamReader(filename);
             while (!srLaplasTable.EndOfStream)
             {
-                buffer = parseString(srLaplasTable.ReadLine());
+                buffer = parseStr(srLaplasTable.ReadLine());
                 data.Add(buffer);
             }
             return data;
-        }
-
-        private double[] parseString(string str)
-        {
-            string[] values = str.Split(';'); // Пара значений - аргумент функции лапласа - значение            
-            double[] valuesPare = new double[2];
-            valuesPare[0] = double.Parse(values[0]);
-            valuesPare[1] = double.Parse(values[1]);
-            return valuesPare;
         }
         
         private void нормальныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
@@ -273,7 +266,7 @@ namespace FirstLabWork
 
         private void показательныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<double> probabilities = new List<double>(); // Вероятности
+            probabilities = new List<double>(); // Вероятности
 
             //
             if (intSeries != null)
@@ -291,11 +284,11 @@ namespace FirstLabWork
 
                 // Число степеней свободы
                 double k = intSeries.SeriesTable.Count - 2;
-
+                tbK.Text = k.ToString();
                 // Рассчитать значение хи-квадрат наблюдаемое
-
+                double hiObs = countHiObs();
+                
                 // Сравнить с табличным значением
-
             }
         }
 
@@ -306,13 +299,69 @@ namespace FirstLabWork
 
         private void значенияКритерияПирсонаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (hiTable == null)
+            readTable();
+        }
+
+
+        // Рассчитать значение хи-квадрат наблюдаемое
+        private double countHiObs()
+        {
+            double answer = 0;
+            int i = 0;
+            foreach (KeyValuePair<LinearInterval, double> pair in intSeries.SeriesTable)
             {
-                hiTable = new Form3();
-                hiTable.Show();
+                answer += Math.Pow((pair.Value - intSeries.SeriesTableFreqSum), 2)/(intSeries.SeriesTableFreqSum*probabilities[i]);
+                i++;
             }
-            else
-                hiTable.Show();
+            return answer;
+        }
+
+        // Для чтения таблицы значений критерия Пирсона
+        public void readTable()
+        {
+            if (dgvHi.Rows.Count < 2 )
+            {
+                // Открыть окно загрузки
+                if (ofdHi.ShowDialog() != DialogResult.OK)
+                    return;
+
+                // Начать чтение
+                if (ofdHi.FileName != null)
+                    readStrs();
+                else
+                    MessageBox.Show("Не был выбран файл!");
+            }
+        }
+
+        
+        private void readStrs()
+        {
+            StreamReader srHi = new StreamReader(ofdHi.FileName); 
+            double[] firstString = parseStr(srHi.ReadLine());
+            dgvHi.TopLeftHeaderCell.Value = "k\\alpha";
+            // Создать заголовки колонкам (значения альфа)
+            for(int i = 0; i < firstString.Length-1; i++)
+                dgvHi.Columns.Add(i.ToString(), firstString[i + 1].ToString());
+             
+            // Добавить строки со значениями критерия
+            double[] buffer;
+            for (int i = 0; !srHi.EndOfStream; i++)
+            {
+                buffer = parseStr(srHi.ReadLine());
+                dgvHi.Rows.Add();
+                dgvHi.Rows[i].HeaderCell.Value = buffer[0].ToString(); ;
+                for (int j = 0; j < buffer.Length-1; j++)
+                    dgvHi.Rows[i].Cells[j].Value = buffer[j + 1].ToString();
+            }
+        }
+
+        private double[] parseStr(string str)
+        {
+            string[] values = str.Split(';'); // Пара значений - аргумент функции лапласа - значение            
+            double[] valuesDb = new double[values.Length];            
+            for (int i = 0; i < values.Length; i++)
+                valuesDb[i] = double.Parse(values[i]);
+            return valuesDb;
         }
     }
 }

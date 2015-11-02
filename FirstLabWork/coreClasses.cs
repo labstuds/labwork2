@@ -271,6 +271,20 @@ namespace FirstLabWork
         {
             get { return table; }
         }
+
+        // Сумма частот
+        public double SeriesTableFreqSum
+        {
+            get 
+            {
+                double sum = 0;
+                foreach (KeyValuePair<LinearInterval, double> pair in table)
+                {
+                    sum += pair.Value;
+                }
+                return sum;
+            }
+        }
     }
 
     public class GroupedRelativeArequenceSeries
