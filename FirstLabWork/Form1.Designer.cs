@@ -59,11 +59,11 @@
             this.InitialSamplingPointTB = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.работаСГотовымРядомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdLoadDataInput = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.работаСГотовымРядомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tpNums.SuspendLayout();
             this.gbCounting.SuspendLayout();
@@ -420,46 +420,46 @@
             this.открытьToolStripMenuItem.Text = "Открыть файл с выборкой...";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
-            // ofdLoadDataInput
-            // 
-            this.ofdLoadDataInput.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdLoadDataInput_FileOk);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::FirstLabWork.Properties.Resources.ср_выборочное;
-            this.pictureBox1.Location = new System.Drawing.Point(150, 58);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(377, 211);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::FirstLabWork.Properties.Resources.disp;
-            this.pictureBox2.Location = new System.Drawing.Point(43, 88);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(613, 204);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::FirstLabWork.Properties.Resources.отклонение;
-            this.pictureBox3.Location = new System.Drawing.Point(6, 66);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(698, 221);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
-            // 
             // работаСГотовымРядомToolStripMenuItem
             // 
             this.работаСГотовымРядомToolStripMenuItem.Name = "работаСГотовымРядомToolStripMenuItem";
             this.работаСГотовымРядомToolStripMenuItem.Size = new System.Drawing.Size(155, 20);
             this.работаСГотовымРядомToolStripMenuItem.Text = "Работа с готовым рядом";
             this.работаСГотовымРядомToolStripMenuItem.Click += new System.EventHandler(this.работаСГотовымРядомToolStripMenuItem_Click);
+            // 
+            // ofdLoadDataInput
+            // 
+            this.ofdLoadDataInput.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdLoadDataInput_FileOk);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::FirstLabWork.Properties.Resources.ср_выборочное1;
+            this.pictureBox1.Location = new System.Drawing.Point(150, 58);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(383, 318);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::FirstLabWork.Properties.Resources.дисперсия;
+            this.pictureBox2.Location = new System.Drawing.Point(43, 88);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(617, 287);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::FirstLabWork.Properties.Resources.отклонение2;
+            this.pictureBox3.Location = new System.Drawing.Point(6, 66);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(698, 313);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 13;
+            this.pictureBox3.TabStop = false;
             // 
             // Form1
             // 
