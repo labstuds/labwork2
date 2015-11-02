@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LoggerEvsSpace;
-
+using System.IO;
 namespace FirstLabWork
 {
     public partial class Form2 : Form
     {
+        List<double[]> LaplasTable = new List<double[]>(); // Таблица значений функции Лапласа
         LinearInterval lastReadedInterval;
         double lastCount;
         IntervalVariationStatisticSeries intSeries;
@@ -226,6 +227,42 @@ namespace FirstLabWork
         private void button2_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Каждый интервал ряда распределения вводится в новой строке.\nФорма ввода следующая.\nПервое число - левая граница инервала, разделитель \';\'\nПравая граница интервала, разделитель пробел, число - частота попаданий в интервал.\nПример \'1;2 20\'", "Формат ввода интервального ряда распределения");
+        }
+                
+        private void загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Открыть окно загрузки
+            if (ofdLaplas.ShowDialog() != DialogResult.OK)
+                return;
+
+            // Начать чтение
+            if (ofdLaplas.FileName != null)
+                LaplasTable = readData(ofdLaplas.FileName);
+            else
+                MessageBox.Show("Не был выбран файл!");
+        }
+
+        private List<double[]> readData(string filename)
+        {
+            List<double[]> data = new List<double[]>();
+            double[] buffer;
+            // Прочитать и распарсить данные 
+            StreamReader srLaplasTable = new StreamReader(filename);
+            while (!srLaplasTable.EndOfStream)
+            {
+                buffer = parseString(srLaplasTable.ReadLine());
+                data.Add(buffer);
+            }
+            return data;
+        }
+
+        private double[] parseString(string str)
+        {
+            string[] values = str.Split(';'); // Пара значений - аргумент функции лапласа - значение            
+            double[] valuesPare = new double[2];
+            valuesPare[0] = double.Parse(values[0]);
+            valuesPare[1] = double.Parse(values[1]);
+            return valuesPare;
         }
     }
 }

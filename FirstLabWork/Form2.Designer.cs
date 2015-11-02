@@ -43,24 +43,28 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ofdLaplas = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.rNumber)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sourceIntervalSeriesBox
             // 
             this.sourceIntervalSeriesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.sourceIntervalSeriesBox.Location = new System.Drawing.Point(12, 33);
+            this.sourceIntervalSeriesBox.Location = new System.Drawing.Point(12, 56);
             this.sourceIntervalSeriesBox.Multiline = true;
             this.sourceIntervalSeriesBox.Name = "sourceIntervalSeriesBox";
-            this.sourceIntervalSeriesBox.Size = new System.Drawing.Size(200, 234);
+            this.sourceIntervalSeriesBox.Size = new System.Drawing.Size(200, 293);
             this.sourceIntervalSeriesBox.TabIndex = 3;
             this.sourceIntervalSeriesBox.Text = "0;1 5\r\n1;2 5\r\n2;3 90";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(289, 13);
             this.label1.TabIndex = 4;
@@ -70,7 +74,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(218, 215);
+            this.button1.Location = new System.Drawing.Point(218, 297);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(338, 23);
             this.button1.TabIndex = 5;
@@ -82,7 +86,7 @@
             // 
             this.calculateGroupedSeries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.calculateGroupedSeries.Location = new System.Drawing.Point(218, 244);
+            this.calculateGroupedSeries.Location = new System.Drawing.Point(218, 326);
             this.calculateGroupedSeries.Name = "calculateGroupedSeries";
             this.calculateGroupedSeries.Size = new System.Drawing.Size(338, 23);
             this.calculateGroupedSeries.TabIndex = 6;
@@ -94,7 +98,7 @@
             // 
             this.calculateChars.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.calculateChars.Location = new System.Drawing.Point(218, 273);
+            this.calculateChars.Location = new System.Drawing.Point(218, 355);
             this.calculateChars.Name = "calculateChars";
             this.calculateChars.Size = new System.Drawing.Size(338, 23);
             this.calculateChars.TabIndex = 7;
@@ -107,11 +111,11 @@
             this.groupedSeriesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupedSeriesBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupedSeriesBox.Location = new System.Drawing.Point(562, 33);
+            this.groupedSeriesBox.Location = new System.Drawing.Point(562, 56);
             this.groupedSeriesBox.Multiline = true;
             this.groupedSeriesBox.Name = "groupedSeriesBox";
             this.groupedSeriesBox.ReadOnly = true;
-            this.groupedSeriesBox.Size = new System.Drawing.Size(185, 263);
+            this.groupedSeriesBox.Size = new System.Drawing.Size(185, 322);
             this.groupedSeriesBox.TabIndex = 8;
             // 
             // label2
@@ -119,7 +123,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(518, 9);
+            this.label2.Location = new System.Drawing.Point(518, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(229, 13);
             this.label2.TabIndex = 9;
@@ -128,7 +132,7 @@
             // characteristicsLabel
             // 
             this.characteristicsLabel.AutoSize = true;
-            this.characteristicsLabel.Location = new System.Drawing.Point(215, 36);
+            this.characteristicsLabel.Location = new System.Drawing.Point(227, 56);
             this.characteristicsLabel.Name = "characteristicsLabel";
             this.characteristicsLabel.Size = new System.Drawing.Size(309, 13);
             this.characteristicsLabel.TabIndex = 10;
@@ -137,7 +141,7 @@
             // rNumber
             // 
             this.rNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rNumber.Location = new System.Drawing.Point(12, 276);
+            this.rNumber.Location = new System.Drawing.Point(12, 358);
             this.rNumber.Minimum = new decimal(new int[] {
             1,
             0,
@@ -156,7 +160,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(154, 278);
+            this.label3.Location = new System.Drawing.Point(154, 360);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 13);
             this.label3.TabIndex = 12;
@@ -209,7 +213,8 @@
             // 
             // helpButton
             // 
-            this.helpButton.Location = new System.Drawing.Point(175, 273);
+            this.helpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.helpButton.Location = new System.Drawing.Point(175, 355);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(37, 23);
             this.helpButton.TabIndex = 25;
@@ -217,11 +222,28 @@
             this.helpButton.UseVisualStyleBackColor = true;
             this.helpButton.Click += new System.EventHandler(this.button2_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(759, 24);
+            this.menuStrip1.TabIndex = 26;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem
+            // 
+            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem.Name = "загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem";
+            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem.Size = new System.Drawing.Size(277, 20);
+            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem.Text = "Загрузить таблицу значений функции Лапласа";
+            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem.Click += new System.EventHandler(this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 308);
+            this.ClientSize = new System.Drawing.Size(759, 390);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -237,10 +259,14 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sourceIntervalSeriesBox);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(775, 347);
             this.Name = "Form2";
             this.Text = "Обработка интервального ряда частот";
             ((System.ComponentModel.ISupportInitialize)(this.rNumber)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,6 +289,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog ofdLaplas;
 
     }
 }
