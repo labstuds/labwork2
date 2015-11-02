@@ -46,6 +46,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdLaplas = new System.Windows.Forms.OpenFileDialog();
+            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.нормальныйЗаконToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.показательныйЗаконToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.значенияКритерияПирсонаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.rNumber)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -225,7 +229,9 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem});
+            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem,
+            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem,
+            this.значенияКритерияПирсонаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(759, 24);
@@ -235,9 +241,39 @@
             // загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem
             // 
             this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem.Name = "загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem";
-            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem.Size = new System.Drawing.Size(277, 20);
-            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem.Text = "Загрузить таблицу значений функции Лапласа";
+            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem.Size = new System.Drawing.Size(170, 20);
+            this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem.Text = "Загрузить таблицу Лапласа";
             this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem.Click += new System.EventHandler(this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem_Click);
+            // 
+            // проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem
+            // 
+            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.нормальныйЗаконToolStripMenuItem,
+            this.показательныйЗаконToolStripMenuItem});
+            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem.Name = "проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem";
+            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem.Size = new System.Drawing.Size(267, 20);
+            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem.Text = "Проверить гипотезу о законе распределения";
+            // 
+            // нормальныйЗаконToolStripMenuItem
+            // 
+            this.нормальныйЗаконToolStripMenuItem.Name = "нормальныйЗаконToolStripMenuItem";
+            this.нормальныйЗаконToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.нормальныйЗаконToolStripMenuItem.Text = "Нормальный закон";
+            this.нормальныйЗаконToolStripMenuItem.Click += new System.EventHandler(this.нормальныйЗаконToolStripMenuItem_Click);
+            // 
+            // показательныйЗаконToolStripMenuItem
+            // 
+            this.показательныйЗаконToolStripMenuItem.Name = "показательныйЗаконToolStripMenuItem";
+            this.показательныйЗаконToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.показательныйЗаконToolStripMenuItem.Text = "Показательный закон";
+            this.показательныйЗаконToolStripMenuItem.Click += new System.EventHandler(this.показательныйЗаконToolStripMenuItem_Click);
+            // 
+            // значенияКритерияПирсонаToolStripMenuItem
+            // 
+            this.значенияКритерияПирсонаToolStripMenuItem.Name = "значенияКритерияПирсонаToolStripMenuItem";
+            this.значенияКритерияПирсонаToolStripMenuItem.Size = new System.Drawing.Size(178, 20);
+            this.значенияКритерияПирсонаToolStripMenuItem.Text = "Значения критерия Пирсона";
+            this.значенияКритерияПирсонаToolStripMenuItem.Click += new System.EventHandler(this.значенияКритерияПирсонаToolStripMenuItem_Click);
             // 
             // Form2
             // 
@@ -292,6 +328,10 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog ofdLaplas;
+        private System.Windows.Forms.ToolStripMenuItem проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem нормальныйЗаконToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem показательныйЗаконToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem значенияКритерияПирсонаToolStripMenuItem;
 
     }
 }

@@ -12,6 +12,7 @@ namespace FirstLabWork
 {
     public partial class Form2 : Form
     {
+        Form3 hiTable = null;
         List<double[]> LaplasTable = new List<double[]>(); // Таблица значений функции Лапласа
         LinearInterval lastReadedInterval;
         double lastCount;
@@ -263,6 +264,55 @@ namespace FirstLabWork
             valuesPare[0] = double.Parse(values[0]);
             valuesPare[1] = double.Parse(values[1]);
             return valuesPare;
+        }
+        
+        private void нормальныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void показательныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<double> probabilities = new List<double>(); // Вероятности
+
+            //
+            if (intSeries != null)
+            {   // Среднее выборочное
+                double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
+                // Рассчитать параметр лямбда
+                double lambda = 1/(sampleMean);
+
+                // Рассчитать вероятности
+                foreach (KeyValuePair<LinearInterval, double> pair in intSeries.SeriesTable)
+                {
+                    double answer = countProbabilityDensityExponentialLaw(lambda, pair.Key.RightBorder) - countProbabilityDensityExponentialLaw(lambda, pair.Key.LeftBorder);
+                    probabilities.Add(answer);
+                }
+
+                // Число степеней свободы
+                double k = intSeries.SeriesTable.Count - 2;
+
+                // Рассчитать значение хи-квадрат наблюдаемое
+
+                // Сравнить с табличным значением
+
+            }
+        }
+
+        private double countProbabilityDensityExponentialLaw(double lambda, double t)
+        {
+            return lambda * Math.Exp(lambda * t);
+        }
+
+        private void значенияКритерияПирсонаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (hiTable == null)
+            {
+                hiTable = new Form3();
+                hiTable.Show();
+            }
+            else
+                hiTable.Show();
         }
     }
 }
