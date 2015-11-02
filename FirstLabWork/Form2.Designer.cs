@@ -40,6 +40,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.showGraphicsButton = new System.Windows.Forms.Button();
             this.cbGraphKind = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.helpButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +74,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(338, 23);
             this.button1.TabIndex = 5;
-            this.button1.Text = "S";
+            this.button1.Text = "Извлечь интервальный ряд распределения частот";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -95,7 +98,7 @@
             this.calculateChars.Name = "calculateChars";
             this.calculateChars.Size = new System.Drawing.Size(338, 23);
             this.calculateChars.TabIndex = 7;
-            this.calculateChars.Text = "Рассчитать характерстики";
+            this.calculateChars.Text = "Рассчитать числовые характерстики";
             this.calculateChars.UseVisualStyleBackColor = true;
             this.calculateChars.Click += new System.EventHandler(this.calculateChars_Click);
             // 
@@ -141,7 +144,7 @@
             0,
             0});
             this.rNumber.Name = "rNumber";
-            this.rNumber.Size = new System.Drawing.Size(174, 20);
+            this.rNumber.Size = new System.Drawing.Size(136, 20);
             this.rNumber.TabIndex = 11;
             this.rNumber.Value = new decimal(new int[] {
             1,
@@ -153,7 +156,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(192, 278);
+            this.label3.Location = new System.Drawing.Point(154, 278);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 13);
             this.label3.TabIndex = 12;
@@ -161,7 +164,7 @@
             // 
             // showGraphicsButton
             // 
-            this.showGraphicsButton.Location = new System.Drawing.Point(385, 186);
+            this.showGraphicsButton.Location = new System.Drawing.Point(385, 171);
             this.showGraphicsButton.Name = "showGraphicsButton";
             this.showGraphicsButton.Size = new System.Drawing.Size(171, 23);
             this.showGraphicsButton.TabIndex = 22;
@@ -180,17 +183,48 @@
             "Полигон",
             "Гистограмма",
             "Функция распределения"});
-            this.cbGraphKind.Location = new System.Drawing.Point(216, 188);
+            this.cbGraphKind.Location = new System.Drawing.Point(216, 171);
             this.cbGraphKind.Name = "cbGraphKind";
             this.cbGraphKind.Size = new System.Drawing.Size(163, 21);
             this.cbGraphKind.TabIndex = 21;
             this.cbGraphKind.SelectedIndexChanged += new System.EventHandler(this.cbGraphKind_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(218, 155);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(332, 13);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Построение графиков и импирической функции распределения";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(218, 196);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(214, 13);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Работа с рядами и их характеристиками";
+            // 
+            // helpButton
+            // 
+            this.helpButton.Location = new System.Drawing.Point(175, 273);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(37, 23);
+            this.helpButton.TabIndex = 25;
+            this.helpButton.Text = "?";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 308);
+            this.Controls.Add(this.helpButton);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.showGraphicsButton);
             this.Controls.Add(this.cbGraphKind);
             this.Controls.Add(this.label3);
@@ -226,6 +260,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button showGraphicsButton;
         private System.Windows.Forms.ComboBox cbGraphKind;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button helpButton;
 
     }
 }

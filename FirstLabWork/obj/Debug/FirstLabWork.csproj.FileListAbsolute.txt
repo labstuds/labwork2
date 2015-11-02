@@ -118,3 +118,29 @@ c:\!work\Университет\5 Пятый семестр\Теория вер�
 c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.resources
 c:\!work\Университет\5 Пятый семестр\Теория вероятностей\Лабы\Лаба 1\18102015\FirstLabWork\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
 D:\Универ\3 курс\Первый семместр\Теор. вер. и мат. статистика\Лабы\Лаба 1\FirstLabWork\FirstLabWork\obj\Debug\FirstLabWork.Form2.resources
+D:\Repos\labwork1\FirstLabWork\bin\Debug\FirstLabWork.exe.config
+D:\Repos\labwork1\FirstLabWork\obj\Debug\FirstLabWork.exe
+D:\Repos\labwork1\FirstLabWork\obj\Debug\FirstLabWork.pdb
+D:\Repos\labwork1\FirstLabWork\bin\Debug\FirstLabWork.exe
+D:\Repos\labwork1\FirstLabWork\bin\Debug\FirstLabWork.pdb
+D:\Repos\labwork1\FirstLabWork\bin\Debug\ZedGraph.xml
+D:\Repos\labwork1\FirstLabWork\bin\Debug\de\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\es\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\fr\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\hu\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\it\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\ja\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\pt\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\ru\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\sk\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\sv\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\tr\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\zh-cn\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\bin\Debug\zh-tw\ZedGraph.resources.dll
+D:\Repos\labwork1\FirstLabWork\obj\Debug\FirstLabWork.csprojResolveAssemblyReference.cache
+D:\Repos\labwork1\FirstLabWork\obj\Debug\FirstLabWork.DisplayForm.resources
+D:\Repos\labwork1\FirstLabWork\obj\Debug\FirstLabWork.EmpiricFunction.resources
+D:\Repos\labwork1\FirstLabWork\obj\Debug\FirstLabWork.Form1.resources
+D:\Repos\labwork1\FirstLabWork\obj\Debug\FirstLabWork.Form2.resources
+D:\Repos\labwork1\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.resources
+D:\Repos\labwork1\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
