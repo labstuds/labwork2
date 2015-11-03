@@ -296,13 +296,7 @@ namespace FirstLabWork
         {
             return lambda * Math.Exp(lambda * t);
         }
-
-        private void значенияКритерияПирсонаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            readTable();
-        }
-
-
+        
         // Рассчитать значение хи-квадрат наблюдаемое
         private double countHiObs()
         {
@@ -362,6 +356,11 @@ namespace FirstLabWork
             for (int i = 0; i < values.Length; i++)
                 valuesDb[i] = double.Parse(values[i]);
             return valuesDb;
+        }
+
+        private void загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            readTable();
         }
     }
 }

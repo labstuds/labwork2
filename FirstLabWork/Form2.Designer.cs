@@ -48,7 +48,6 @@
             this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.нормальныйЗаконToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.показательныйЗаконToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.значенияКритерияПирсонаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdLaplas = new System.Windows.Forms.OpenFileDialog();
             this.ofdHi = new System.Windows.Forms.OpenFileDialog();
             this.dgvHi = new System.Windows.Forms.DataGridView();
@@ -57,6 +56,7 @@
             this.tbHiObs = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.rNumber)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHi)).BeginInit();
@@ -233,8 +233,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem,
-            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem,
-            this.значенияКритерияПирсонаToolStripMenuItem});
+            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1110, 24);
@@ -252,31 +251,25 @@
             // 
             this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.нормальныйЗаконToolStripMenuItem,
-            this.показательныйЗаконToolStripMenuItem});
+            this.показательныйЗаконToolStripMenuItem,
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem});
             this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem.Name = "проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem";
-            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem.Size = new System.Drawing.Size(267, 20);
-            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem.Text = "Проверить гипотезу о законе распределения";
+            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+            this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem.Text = "Проверка гипотез";
             // 
             // нормальныйЗаконToolStripMenuItem
             // 
             this.нормальныйЗаконToolStripMenuItem.Name = "нормальныйЗаконToolStripMenuItem";
-            this.нормальныйЗаконToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.нормальныйЗаконToolStripMenuItem.Text = "Нормальный закон";
+            this.нормальныйЗаконToolStripMenuItem.Size = new System.Drawing.Size(536, 22);
+            this.нормальныйЗаконToolStripMenuItem.Text = "Проверить гипотезу о нормальном законе распределения по критерию Пирсона";
             this.нормальныйЗаконToolStripMenuItem.Click += new System.EventHandler(this.нормальныйЗаконToolStripMenuItem_Click);
             // 
             // показательныйЗаконToolStripMenuItem
             // 
             this.показательныйЗаконToolStripMenuItem.Name = "показательныйЗаконToolStripMenuItem";
-            this.показательныйЗаконToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.показательныйЗаконToolStripMenuItem.Text = "Показательный закон";
+            this.показательныйЗаконToolStripMenuItem.Size = new System.Drawing.Size(536, 22);
+            this.показательныйЗаконToolStripMenuItem.Text = "Проверить гипотезу о показательном законе распределения по критерию Пирсона";
             this.показательныйЗаконToolStripMenuItem.Click += new System.EventHandler(this.показательныйЗаконToolStripMenuItem_Click);
-            // 
-            // значенияКритерияПирсонаToolStripMenuItem
-            // 
-            this.значенияКритерияПирсонаToolStripMenuItem.Name = "значенияКритерияПирсонаToolStripMenuItem";
-            this.значенияКритерияПирсонаToolStripMenuItem.Size = new System.Drawing.Size(178, 20);
-            this.значенияКритерияПирсонаToolStripMenuItem.Text = "Значения критерия Пирсона";
-            this.значенияКритерияПирсонаToolStripMenuItem.Click += new System.EventHandler(this.значенияКритерияПирсонаToolStripMenuItem_Click);
             // 
             // dgvHi
             // 
@@ -291,11 +284,11 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(855, 40);
+            this.label6.Location = new System.Drawing.Point(789, 40);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 13);
+            this.label6.Size = new System.Drawing.Size(244, 13);
             this.label6.TabIndex = 28;
-            this.label6.Text = "Значения критерия Пирсона";
+            this.label6.Text = "Критические точки распределения Хи квадрат";
             // 
             // tbK
             // 
@@ -318,7 +311,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(218, 224);
+            this.label7.Location = new System.Drawing.Point(215, 224);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(145, 13);
             this.label7.TabIndex = 31;
@@ -332,6 +325,13 @@
             this.label8.Size = new System.Drawing.Size(177, 13);
             this.label8.TabIndex = 32;
             this.label8.Text = "Критерий Пирсона наблюдаемый";
+            // 
+            // загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem
+            // 
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Name = "загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem";
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Size = new System.Drawing.Size(385, 22);
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Text = "Загрузить критические точки распределения Хи квадрат";
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Click += new System.EventHandler(this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem_Click);
             // 
             // Form2
             // 
@@ -397,7 +397,6 @@
         private System.Windows.Forms.ToolStripMenuItem проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem нормальныйЗаконToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem показательныйЗаконToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem значенияКритерияПирсонаToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog ofdHi;
         private System.Windows.Forms.DataGridView dgvHi;
         private System.Windows.Forms.Label label6;
@@ -405,6 +404,7 @@
         private System.Windows.Forms.TextBox tbHiObs;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem;
 
     }
 }
