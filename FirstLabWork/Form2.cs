@@ -23,6 +23,24 @@ namespace FirstLabWork
         public Form2()
         {
             InitializeComponent(); 
+            // Заполнить ряд стандартными значениями
+            setDefaultIntervalsGrid();
+        }
+
+        private void setDefaultIntervalsGrid()
+        {
+            int intervalsCount = 3;
+            for (int i = 0; i < intervalsCount; i++)
+                dgvIntervals.Rows.Add();
+            dgvIntervals.Rows[0].Cells[0].Value = 1;
+            dgvIntervals.Rows[0].Cells[1].Value = 2;
+            dgvIntervals.Rows[0].Cells[2].Value = 5;
+            dgvIntervals.Rows[1].Cells[0].Value = 2;
+            dgvIntervals.Rows[1].Cells[1].Value = 3;
+            dgvIntervals.Rows[1].Cells[2].Value = 5;
+            dgvIntervals.Rows[2].Cells[0].Value = 3;
+            dgvIntervals.Rows[2].Cells[1].Value = 4;
+            dgvIntervals.Rows[2].Cells[2].Value = 90;
         }
 
        
@@ -130,13 +148,15 @@ namespace FirstLabWork
         }
 
         private void visualizeGroupedSeries()
-        {
-            String result = "";
+        {            
+            int i = 0;
             foreach (KeyValuePair<double, double> pair in groupedSeries.SeriesTable)
-            {
-                result += String.Format("{0}    {1:f4}\r\n", pair.Key, pair.Value);
-            }
-            groupedSeriesBox.Text = result;
+            {                
+                dgvGroupedSeries.Rows.Add();
+                dgvGroupedSeries.Rows[i].Cells[0].Value = pair.Key.ToString();
+                dgvGroupedSeries.Rows[i].Cells[1].Value = pair.Value.ToString();
+                i++;
+            }            
         }
 
         private void calculateChars_Click(object sender, EventArgs e)

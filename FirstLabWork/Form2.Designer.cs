@@ -32,7 +32,6 @@
             this.btnGetIntervalSeriesTable = new System.Windows.Forms.Button();
             this.calculateGroupedSeries = new System.Windows.Forms.Button();
             this.calculateChars = new System.Windows.Forms.Button();
-            this.groupedSeriesBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.characteristicsLabel = new System.Windows.Forms.Label();
             this.rNumber = new System.Windows.Forms.NumericUpDown();
@@ -62,10 +61,14 @@
             this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoveInterval = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.dgvGroupedSeries = new System.Windows.Forms.DataGridView();
+            this.X_star = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.m_i_star = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rNumber)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntervals)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGroupedSeries)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -109,17 +112,6 @@
             this.calculateChars.Text = "Рассчитать числовые характерстики";
             this.calculateChars.UseVisualStyleBackColor = true;
             this.calculateChars.Click += new System.EventHandler(this.calculateChars_Click);
-            // 
-            // groupedSeriesBox
-            // 
-            this.groupedSeriesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.groupedSeriesBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupedSeriesBox.Location = new System.Drawing.Point(562, 56);
-            this.groupedSeriesBox.Multiline = true;
-            this.groupedSeriesBox.Name = "groupedSeriesBox";
-            this.groupedSeriesBox.ReadOnly = true;
-            this.groupedSeriesBox.Size = new System.Drawing.Size(185, 322);
-            this.groupedSeriesBox.TabIndex = 8;
             // 
             // label2
             // 
@@ -385,11 +377,39 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // dgvGroupedSeries
+            // 
+            this.dgvGroupedSeries.AllowUserToAddRows = false;
+            this.dgvGroupedSeries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGroupedSeries.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.X_star,
+            this.m_i_star});
+            this.dgvGroupedSeries.Location = new System.Drawing.Point(562, 56);
+            this.dgvGroupedSeries.Name = "dgvGroupedSeries";
+            this.dgvGroupedSeries.ReadOnly = true;
+            this.dgvGroupedSeries.Size = new System.Drawing.Size(185, 322);
+            this.dgvGroupedSeries.TabIndex = 37;
+            // 
+            // X_star
+            // 
+            this.X_star.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.X_star.HeaderText = "x*";
+            this.X_star.Name = "X_star";
+            this.X_star.ReadOnly = true;
+            // 
+            // m_i_star
+            // 
+            this.m_i_star.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.m_i_star.HeaderText = "m*";
+            this.m_i_star.Name = "m_i_star";
+            this.m_i_star.ReadOnly = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 390);
+            this.Controls.Add(this.dgvGroupedSeries);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnRemoveInterval);
             this.Controls.Add(this.dgvIntervals);
@@ -408,7 +428,6 @@
             this.Controls.Add(this.rNumber);
             this.Controls.Add(this.characteristicsLabel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupedSeriesBox);
             this.Controls.Add(this.calculateChars);
             this.Controls.Add(this.calculateGroupedSeries);
             this.Controls.Add(this.btnGetIntervalSeriesTable);
@@ -424,6 +443,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntervals)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGroupedSeries)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,7 +455,6 @@
         private System.Windows.Forms.Button btnGetIntervalSeriesTable;
         private System.Windows.Forms.Button calculateGroupedSeries;
         private System.Windows.Forms.Button calculateChars;
-        private System.Windows.Forms.TextBox groupedSeriesBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label characteristicsLabel;
         private System.Windows.Forms.NumericUpDown rNumber;
@@ -465,6 +484,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RightBorder;
         private System.Windows.Forms.DataGridViewTextBoxColumn N;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridView dgvGroupedSeries;
+        private System.Windows.Forms.DataGridViewTextBoxColumn X_star;
+        private System.Windows.Forms.DataGridViewTextBoxColumn m_i_star;
 
     }
 }
