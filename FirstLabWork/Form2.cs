@@ -79,6 +79,7 @@ namespace FirstLabWork
         {
             bool tableIsValid = true;            
             double oldRghtBrdr = 0;
+            double bordersDifference = 0; // Разница между интервалами
             if (dgvIntervals.Rows.Count < 2)
             {
                 MessageBox.Show("Введите как минимум 2 интервала");
@@ -115,10 +116,9 @@ namespace FirstLabWork
                         }
                     }
 
+                    // Проверка целостности интервала
                     if (i == 0)
-                    {
                         oldRghtBrdr = Convert.ToDouble(dgvIntervals.Rows[0].Cells[1].Value);
-                    }
                     else
                     {
                         if (oldRghtBrdr != Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value))
@@ -130,6 +130,20 @@ namespace FirstLabWork
                             oldRghtBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value);
                     }
 
+                    // Проверка равенства интервальных отрезков
+                    if(i == 0)
+                        bordersDifference = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
+                    else
+                    {
+                        double currentBordersDifferenice = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
+                        if (bordersDifference != currentBordersDifferenice)
+                        {
+                            tableIsValid = false;
+                            MessageBox.Show("Обнаружен непропорциональный интервал");
+                        }
+                        else
+                            bordersDifference = currentBordersDifferenice;
+                    }
                 }
             }
             return tableIsValid;
