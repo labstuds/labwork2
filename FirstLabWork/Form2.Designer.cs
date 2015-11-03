@@ -438,6 +438,7 @@
             this.MinimumSize = new System.Drawing.Size(1126, 429);
             this.Name = "Form2";
             this.Text = "Обработка интервального ряда частот";
+            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rNumber)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

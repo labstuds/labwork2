@@ -19,12 +19,13 @@ namespace FirstLabWork
         IntervalVariationStatisticSeries intSeries;
         GroupedRelativeArequenceSeries groupedSeries;
         
-        
         public Form2()
         {
             InitializeComponent(); 
             // Заполнить ряд стандартными значениями
             setDefaultIntervalsGrid();
+            
+            
         }
 
         private void setDefaultIntervalsGrid()
@@ -395,6 +396,14 @@ namespace FirstLabWork
             btnRemoveInterval.Enabled = true;
         }
 
-        
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            ToolTip formula_k = new ToolTip(); // Всплывающая подсказка с формулой для степеней свободы
+            formula_k.AutoPopDelay = 5000;
+            formula_k.InitialDelay = 100;
+            formula_k.ReshowDelay = 500;
+            formula_k.ShowAlways = true;                        
+            formula_k.SetToolTip(this.tbK, "k = n - r - 1\nk - Число степеней свободы\nn - Число интервалов\nr - Число параметров закона распределения");        
+        }
     }
 }
