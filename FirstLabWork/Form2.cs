@@ -22,40 +22,98 @@ namespace FirstLabWork
         
         public Form2()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
+       
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
+        
         private void button1_Click(object sender, EventArgs e)
         {
+            if (intervalsGridIsCorrect())
+                readIntervalsGrid();
+        }
+
+        private void readIntervalsGrid()
+        {
             SortedDictionary<LinearInterval, double> intervalSeriesTable = new SortedDictionary<LinearInterval, double>();
-            int index = 0;
-            int stringCounter = 0;
-            try
+            // Считать ряд из таблицы
+            LinearInterval bufInterval;
+            double leftBorder, rightBorder, freq;
+            for (int i = 0; i < dgvIntervals.Rows.Count; i++)
             {
-                String currentString = getNextString(sourceIntervalSeriesBox.Text, ref index);
-                stringCounter++;
-                while (currentString != "")
+                leftBorder = Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
+                rightBorder = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value);
+                freq = Convert.ToDouble(dgvIntervals.Rows[i].Cells[2].Value);
+                bufInterval = new LinearInterval(leftBorder, rightBorder);
+                intervalSeriesTable.Add(bufInterval, freq);
+            }
+            // Получить интервальные ряды
+            intSeries = IntervalVariationStatisticSeries.calculateSeriesFromReadySeries(intervalSeriesTable);
+        }
+
+        private bool intervalsGridIsCorrect()
+        {
+            bool tableIsValid = true;            
+            double oldRghtBrdr = 0;
+            if (dgvIntervals.Rows.Count < 2)
+            {
+                MessageBox.Show("Введите как минимум 2 интервала");
+                tableIsValid = false;
+            }
+            else
+            {
+                // Проверить валидность таблицы
+                for (int i = 0; i < dgvIntervals.Rows.Count && tableIsValid; i++)
                 {
-                    getLinearIntervalDoublePairFromString(currentString);
-                    intervalSeriesTable.Add(lastReadedInterval, lastCount);
-                    currentString = getNextString(sourceIntervalSeriesBox.Text, ref index);
-                    stringCounter++;
+                    // Проверить на незаполненные значения
+                    for (int j = 0; j < dgvIntervals.Rows[i].Cells.Count && tableIsValid; j++)
+                    {
+                        if (dgvIntervals.Rows[i].Cells[j].Value == null)
+                        {
+                            tableIsValid = false;
+                            MessageBox.Show(string.Format("Незаполнена {0} ячейка в {1}-й строке", j + 1, i + 1));
+                        }
+                    }
+                    // Проверить на "перевернутый" интервал
+                    for (int j = 0; j < dgvIntervals.Rows[i].Cells.Count - 1 && tableIsValid; j++)
+                    {
+                        double leftBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[j].Value);
+                        double rigthBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[j + 1].Value);
+                        if (leftBrdr > rigthBrdr)
+                        {
+                            tableIsValid = false;
+                            MessageBox.Show(string.Format("У интервала в {0}-й строке неверные границы", i + 1));
+                        }
+                        else if (leftBrdr == rigthBrdr)
+                        {
+                            tableIsValid = false;
+                            MessageBox.Show(string.Format("У инетрвала в {0}-й строке равны границы", i + 1));
+                        }
+                    }
+
+                    if (i == 0)
+                    {
+                        oldRghtBrdr = Convert.ToDouble(dgvIntervals.Rows[0].Cells[1].Value);
+                    }
+                    else
+                    {
+                        if (oldRghtBrdr != Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value))
+                        {
+                            tableIsValid = false;
+                            MessageBox.Show(string.Format("Нарушена целостность интервала в {0}-й строке", i + 1));
+                        }
+                        else
+                            oldRghtBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value);
+                    }
+
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Не верно записан ряд. Заполняйте поле ввода согласно стандарту.");
-                return;
-            }
-            finally
-            {
-                intSeries = IntervalVariationStatisticSeries.calculateSeriesFromReadySeries(intervalSeriesTable);
-            }
+            return tableIsValid;
         }
 
         private String getNextString(String source, ref int index)
@@ -362,5 +420,20 @@ namespace FirstLabWork
         {
             readTable();
         }
+
+        private void btnRemoveInterval_Click(object sender, EventArgs e)
+        {   // Удалить ряд (строку таблицы)                        
+            dgvIntervals.Rows.RemoveAt(dgvIntervals.CurrentRow.Index);
+            if (dgvIntervals.Rows.Count == 0)
+                btnRemoveInterval.Enabled = false;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            dgvIntervals.Rows.Add();
+            btnRemoveInterval.Enabled = true;
+        }
+
+        
     }
 }

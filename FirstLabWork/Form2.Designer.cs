@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.sourceIntervalSeriesBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGetIntervalSeriesTable = new System.Windows.Forms.Button();
             this.calculateGroupedSeries = new System.Windows.Forms.Button();
             this.calculateChars = new System.Windows.Forms.Button();
             this.groupedSeriesBox = new System.Windows.Forms.TextBox();
@@ -48,6 +47,7 @@
             this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.нормальныйЗаконToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.показательныйЗаконToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdLaplas = new System.Windows.Forms.OpenFileDialog();
             this.ofdHi = new System.Windows.Forms.OpenFileDialog();
             this.dgvHi = new System.Windows.Forms.DataGridView();
@@ -56,22 +56,17 @@
             this.tbHiObs = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvIntervals = new System.Windows.Forms.DataGridView();
+            this.LeftBorder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RightBorder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRemoveInterval = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rNumber)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIntervals)).BeginInit();
             this.SuspendLayout();
-            // 
-            // sourceIntervalSeriesBox
-            // 
-            this.sourceIntervalSeriesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.sourceIntervalSeriesBox.Location = new System.Drawing.Point(12, 56);
-            this.sourceIntervalSeriesBox.Multiline = true;
-            this.sourceIntervalSeriesBox.Name = "sourceIntervalSeriesBox";
-            this.sourceIntervalSeriesBox.Size = new System.Drawing.Size(200, 293);
-            this.sourceIntervalSeriesBox.TabIndex = 3;
-            this.sourceIntervalSeriesBox.Text = "0;1 5\r\n1;2 5\r\n2;3 90";
             // 
             // label1
             // 
@@ -82,16 +77,16 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Таблица с интервальным рядом распределения частот\r\n";
             // 
-            // button1
+            // btnGetIntervalSeriesTable
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(218, 297);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(338, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Извлечь интервальный ряд распределения частот";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGetIntervalSeriesTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGetIntervalSeriesTable.Location = new System.Drawing.Point(218, 297);
+            this.btnGetIntervalSeriesTable.Name = "btnGetIntervalSeriesTable";
+            this.btnGetIntervalSeriesTable.Size = new System.Drawing.Size(338, 23);
+            this.btnGetIntervalSeriesTable.TabIndex = 5;
+            this.btnGetIntervalSeriesTable.Text = "Извлечь интервальный ряд распределения частот";
+            this.btnGetIntervalSeriesTable.UseVisualStyleBackColor = true;
+            this.btnGetIntervalSeriesTable.Click += new System.EventHandler(this.button1_Click);
             // 
             // calculateGroupedSeries
             // 
@@ -271,6 +266,13 @@
             this.показательныйЗаконToolStripMenuItem.Text = "Проверить гипотезу о показательном законе распределения по критерию Пирсона";
             this.показательныйЗаконToolStripMenuItem.Click += new System.EventHandler(this.показательныйЗаконToolStripMenuItem_Click);
             // 
+            // загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem
+            // 
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Name = "загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem";
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Size = new System.Drawing.Size(536, 22);
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Text = "Загрузить критические точки распределения Хи квадрат";
+            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Click += new System.EventHandler(this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem_Click);
+            // 
             // dgvHi
             // 
             this.dgvHi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -326,18 +328,71 @@
             this.label8.TabIndex = 32;
             this.label8.Text = "Критерий Пирсона наблюдаемый";
             // 
-            // загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem
+            // dgvIntervals
             // 
-            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Name = "загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem";
-            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Size = new System.Drawing.Size(385, 22);
-            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Text = "Загрузить критические точки распределения Хи квадрат";
-            this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem.Click += new System.EventHandler(this.загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem_Click);
+            this.dgvIntervals.AllowUserToAddRows = false;
+            this.dgvIntervals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIntervals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LeftBorder,
+            this.RightBorder,
+            this.N});
+            this.dgvIntervals.Location = new System.Drawing.Point(12, 57);
+            this.dgvIntervals.MultiSelect = false;
+            this.dgvIntervals.Name = "dgvIntervals";
+            this.dgvIntervals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvIntervals.Size = new System.Drawing.Size(198, 263);
+            this.dgvIntervals.TabIndex = 33;
+            // 
+            // LeftBorder
+            // 
+            this.LeftBorder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.LeftBorder.HeaderText = "X_i";
+            this.LeftBorder.Name = "LeftBorder";
+            this.LeftBorder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // RightBorder
+            // 
+            this.RightBorder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RightBorder.HeaderText = "X_i+1";
+            this.RightBorder.Name = "RightBorder";
+            this.RightBorder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // N
+            // 
+            this.N.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.N.HeaderText = "n";
+            this.N.Name = "N";
+            this.N.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // btnRemoveInterval
+            // 
+            this.btnRemoveInterval.Enabled = false;
+            this.btnRemoveInterval.Location = new System.Drawing.Point(130, 325);
+            this.btnRemoveInterval.Name = "btnRemoveInterval";
+            this.btnRemoveInterval.Size = new System.Drawing.Size(80, 23);
+            this.btnRemoveInterval.TabIndex = 35;
+            this.btnRemoveInterval.Text = "Удалить ряд";
+            this.btnRemoveInterval.UseVisualStyleBackColor = true;
+            this.btnRemoveInterval.Click += new System.EventHandler(this.btnRemoveInterval_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(12, 325);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(112, 23);
+            this.btnAdd.TabIndex = 36;
+            this.btnAdd.Text = "Добавить ряд";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 390);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnRemoveInterval);
+            this.Controls.Add(this.dgvIntervals);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbHiObs);
@@ -356,9 +411,8 @@
             this.Controls.Add(this.groupedSeriesBox);
             this.Controls.Add(this.calculateChars);
             this.Controls.Add(this.calculateGroupedSeries);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGetIntervalSeriesTable);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.sourceIntervalSeriesBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1126, 429);
@@ -369,6 +423,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIntervals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,9 +431,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox sourceIntervalSeriesBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGetIntervalSeriesTable;
         private System.Windows.Forms.Button calculateGroupedSeries;
         private System.Windows.Forms.Button calculateChars;
         private System.Windows.Forms.TextBox groupedSeriesBox;
@@ -405,6 +459,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvIntervals;
+        private System.Windows.Forms.Button btnRemoveInterval;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LeftBorder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RightBorder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn N;
+        private System.Windows.Forms.Button btnAdd;
 
     }
 }
