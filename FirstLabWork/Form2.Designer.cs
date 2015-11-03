@@ -194,7 +194,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(332, 13);
             this.label4.TabIndex = 23;
-            this.label4.Text = "Построение графиков и импирической функции распределения";
+            this.label4.Text = "Построение графиков и эмпирической функции распределения";
             // 
             // label5
             // 

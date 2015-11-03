@@ -41,6 +41,7 @@ namespace FirstLabWork
             dgvIntervals.Rows[2].Cells[0].Value = 3;
             dgvIntervals.Rows[2].Cells[1].Value = 4;
             dgvIntervals.Rows[2].Cells[2].Value = 90;
+            btnRemoveInterval.Enabled = true;
         }
 
        
