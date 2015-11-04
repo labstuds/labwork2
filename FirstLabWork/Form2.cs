@@ -386,20 +386,17 @@ namespace FirstLabWork
                 dgvHi.Columns.Add(i.ToString(), firstString[i + 1].ToString());
                 horizValues.Add(firstString[i + 1]);
             }
-             
+            currentHiTable.SignificanceLevelValues = horizValues;
             // Добавить строки со значениями критерия
             double[] buffer;
-            
             for (int i = 0; !srHi.EndOfStream; i++)
             {
                 buffer = parseStr(srHi.ReadLine());
                 dgvHi.Rows.Add();
                 dgvHi.Rows[i].HeaderCell.Value = buffer[0].ToString();
-                // Сформировать "ключ" для таблицы критических точек
-                //buffHiKey.Horizontally = horizValues[i];
-                
                 for (int j = 0; j < buffer.Length - 1; j++)
                 {
+                    // Сформировать "ключ" для таблицы критических точек 
                     HiValueKey buffHiKey = new HiValueKey();
                     buffHiKey.Horizontally = buffer[0];
                     buffHiKey.Vertically = horizValues[j];
@@ -422,6 +419,10 @@ namespace FirstLabWork
         private void загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem_Click(object sender, EventArgs e)
         {
             readTable();
+            // Добавить пункты в комбобокс уровня значимости
+            List<double> alphaValues = currentHiTable.SignificanceLevelValues;
+            cbAlphaValues.DataSource = alphaValues;
+            cbAlphaValues.Enabled = true;
         }
 
         private void btnRemoveInterval_Click(object sender, EventArgs e)

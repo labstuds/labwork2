@@ -64,6 +64,8 @@
             this.dgvGroupedSeries = new System.Windows.Forms.DataGridView();
             this.X_star = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.m_i_star = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbAlphaValues = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.rNumber)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHi)).BeginInit();
@@ -287,7 +289,7 @@
             // tbK
             // 
             this.tbK.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tbK.Location = new System.Drawing.Point(398, 221);
+            this.tbK.Location = new System.Drawing.Point(398, 212);
             this.tbK.Name = "tbK";
             this.tbK.ReadOnly = true;
             this.tbK.Size = new System.Drawing.Size(158, 20);
@@ -296,7 +298,7 @@
             // tbHiObs
             // 
             this.tbHiObs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tbHiObs.Location = new System.Drawing.Point(398, 257);
+            this.tbHiObs.Location = new System.Drawing.Point(398, 238);
             this.tbHiObs.Name = "tbHiObs";
             this.tbHiObs.ReadOnly = true;
             this.tbHiObs.Size = new System.Drawing.Size(158, 20);
@@ -305,7 +307,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(215, 224);
+            this.label7.Location = new System.Drawing.Point(215, 215);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(145, 13);
             this.label7.TabIndex = 31;
@@ -314,7 +316,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(215, 260);
+            this.label8.Location = new System.Drawing.Point(215, 241);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(177, 13);
             this.label8.TabIndex = 32;
@@ -404,11 +406,32 @@
             this.m_i_star.Name = "m_i_star";
             this.m_i_star.ReadOnly = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(213, 270);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(143, 13);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "Уровень значимости alpha";
+            // 
+            // cbAlphaValues
+            // 
+            this.cbAlphaValues.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAlphaValues.Enabled = false;
+            this.cbAlphaValues.FormattingEnabled = true;
+            this.cbAlphaValues.Location = new System.Drawing.Point(398, 267);
+            this.cbAlphaValues.Name = "cbAlphaValues";
+            this.cbAlphaValues.Size = new System.Drawing.Size(158, 21);
+            this.cbAlphaValues.TabIndex = 39;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 390);
+            this.Controls.Add(this.cbAlphaValues);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.dgvGroupedSeries);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnRemoveInterval);
@@ -488,6 +511,8 @@
         private System.Windows.Forms.DataGridView dgvGroupedSeries;
         private System.Windows.Forms.DataGridViewTextBoxColumn X_star;
         private System.Windows.Forms.DataGridViewTextBoxColumn m_i_star;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbAlphaValues;
 
     }
 }

@@ -16,6 +16,12 @@ namespace FirstLabWork
             get { return HiTable; }
             set { hiTable = value; }
         }
+        private List<double> significanceLevelValues = new List<double>();  // Уровни значимости
+        public List<double> SignificanceLevelValues
+        {
+            get { return significanceLevelValues; }
+            set { significanceLevelValues = value; }
+        }
         /// <summary>
         /// Добавить элемент
         /// </summary>
@@ -34,6 +40,7 @@ namespace FirstLabWork
         {
             return hiTable[key];
         }
+        
     }
 
     /// <summary>
