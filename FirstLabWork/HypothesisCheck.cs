@@ -10,7 +10,30 @@ namespace FirstLabWork
     /// </summary>
     abstract class HypothesisCheck
     {
+        /// <summary>
+        /// Значение Хи квадрат наблюдаемое
+        /// </summary>
+        protected double hiObserved;
+        public double HiObserved
+        {
+            get { return hiObserved; }
+        }
+        /// <summary>
+        /// Критическая точка
+        /// </summary>
+        protected double hiCritical;
+        public double HiCritical
+        {
+            get { return hiCritical; }
+        }
+        /// <summary>
+        /// Вероятности
+        /// </summary>
         protected List<double> probabilities;
+        /// <summary>
+        /// Таблица критических точек Хи квадрат
+        /// </summary>
+        protected HiCritTable hiCritValuesTable;
         /// <summary>
         /// Выполнить проверку гипотезы
         /// </summary>
@@ -25,6 +48,19 @@ namespace FirstLabWork
         /// <param name="inValue">Интервал для расчета вероятности</param>
         /// <returns></returns>
         abstract protected List<double> probabilityFunction(IntervalVariationStatisticSeries inValue);
+        /// <summary>
+        /// Рассчитать наблюдаемое значение Хи квадрат
+        /// </summary>
+        /// <param name="intSeries">Интервальный ряд частот</param>
+        /// <returns>Хи квадрат наблюдаемое</returns>
+        abstract protected double countHiObserved(IntervalVariationStatisticSeries intSeries);
+        /// <summary>
+        /// Найти критическую точку
+        /// </summary>
+        /// <param name="k">Число степеней свободы</param>
+        /// <param name="significanceLevel">Уровень значимости</param>
+        /// <returns></returns>
+        abstract protected double findHiCritical(double k, double significanceLevel);
     }
 
     /// <summary>
@@ -33,12 +69,6 @@ namespace FirstLabWork
     class NormalLawHypotesisCheck : HypothesisCheck 
     {
         private List<double[]> laplasTable = new List<double[]>();
-        private HiCritTable hiCritValuesTable = new HiCritTable();
-        private double hiObserved;
-        public double HiObserved
-        {
-            get { return hiObserved; }
-        }
         public List<double[]> LaplasTable
         {
             set { laplasTable = value; }
@@ -51,7 +81,6 @@ namespace FirstLabWork
             this.laplasTable = laplasTable;
             this.hiCritValuesTable = hiCritValuesTable;            
         }
-
         public override bool doCheck(double significanceLevel, IntervalVariationStatisticSeries intSeries)
         {
             bool lawConfirmed = true;
@@ -62,8 +91,23 @@ namespace FirstLabWork
             probabilities = probabilityFunction(newInterval);
             // Рассчитать наблюдаемое значение критерия Хи квадрат
             hiObserved = countHiObserved(newInterval);
+            hiCritical = findHiCritical(k, significanceLevel);
+            if (hiObserved <= hiCritical)
+                lawConfirmed = true;
+            else
+                lawConfirmed = false;
             return lawConfirmed;
         }
+
+        protected override double findHiCritical(double k, double significanceLevel)
+        {
+            double answer = 0;
+            foreach(KeyValuePair<HiValueKey, double> pair in hiCritValuesTable.HiTable)
+                if (pair.Key.Horizontally == k && pair.Key.Vertically == significanceLevel)
+                    answer = pair.Value;
+            return answer;
+        }
+
         protected override List<double> probabilityFunction(IntervalVariationStatisticSeries intervalSeries)
         {
             List<double> probabilities = new List<double>();
@@ -95,12 +139,13 @@ namespace FirstLabWork
             }
             return probabilities;
         }
-        private double countHiObserved(IntervalVariationStatisticSeries intSeries)
+        
+        protected override double countHiObserved(IntervalVariationStatisticSeries intSeries)
         {
-            double sum = 0;            
+            double sum = 0;
             double numerator, denomirator;
             int i = 0;
-            foreach(KeyValuePair<LinearInterval, double> pair in intSeries.SeriesTable)
+            foreach (KeyValuePair<LinearInterval, double> pair in intSeries.SeriesTable)
             {
                 double toPow = pair.Value - intSeries.SeriesTableFreqSum * probabilities[i];
                 numerator = Math.Pow(toPow, 2);
@@ -110,7 +155,7 @@ namespace FirstLabWork
             }
             return sum;
         }
-        
+
         private double getLaplasFunctionValue(double argument)
         {
             argument = Math.Abs(Math.Round(argument, 2));   // Т.к. значения аргументов в таблице Лапласа округлены до двух знаков
@@ -150,6 +195,13 @@ namespace FirstLabWork
         {
             throw new NotImplementedException();
         }
-        
+        protected override double countHiObserved(IntervalVariationStatisticSeries intSeries)
+        {
+            throw new NotImplementedException();
+        }
+        protected override double findHiCritical(double k, double significanceLevel)
+        {
+            throw new NotImplementedException();
+        }   
     }
 }

@@ -17,6 +17,10 @@ namespace FirstLabWork
             get { return significanceLevelValues; }
             set { significanceLevelValues = value; }
         }
+        public Dictionary<HiValueKey, double> HiTable
+        {
+            get { return hiTable; }
+        }
         public int Count()
         {
             return hiTable.Count; 

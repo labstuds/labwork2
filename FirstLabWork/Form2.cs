@@ -306,8 +306,11 @@ namespace FirstLabWork
                 tbK.Text = k.ToString();
                 double significanceLevel = Convert.ToDouble(cbAlphaValues.SelectedValue);
                 // Проверить гипотезу
-                NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable, currentHiTable);                
-                bool lawConfirmed = nrmLawCheck.doCheck(significanceLevel, intSeries);
+                NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable, currentHiTable);                                
+                if (nrmLawCheck.doCheck(significanceLevel, intSeries))
+                    MessageBox.Show("Гипотеза о нормальном законе распределения не опровергается");
+                else
+                    MessageBox.Show("Гипотеза о нормальном законе распределения опровергается");
                 tbHiObs.Text = nrmLawCheck.HiObserved.ToString();
             }
         }
@@ -321,7 +324,11 @@ namespace FirstLabWork
                double significanceLevel = Convert.ToDouble(cbAlphaValues.SelectedValue);
                // Проверить гипотезу
                ExponentialLawCheck expLawCheck = new ExponentialLawCheck();
-               bool lawConfirmed = expLawCheck.doCheck(significanceLevel, intSeries);
+               if (expLawCheck.doCheck(significanceLevel, intSeries))
+                   MessageBox.Show("Гипотеза о нормальном законе распределения не опровергается");
+               else
+                   MessageBox.Show("Гипотеза о нормальном законе распределения опровергается");
+               
            }
         }
 
