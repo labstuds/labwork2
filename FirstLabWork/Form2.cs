@@ -281,7 +281,13 @@ namespace FirstLabWork
         
         private void нормальныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (LaplasTable.Count == 0)
+                MessageBox.Show("Необходимо загрузить таблицу значений функции Лапласа");
+            else
+            {
+                NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable);
+                bool lawConfirmed = nrmLawCheck.doCheck();
+            }
         }
 
         private void показательныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)

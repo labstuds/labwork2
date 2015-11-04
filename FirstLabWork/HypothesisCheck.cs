@@ -29,6 +29,19 @@ namespace FirstLabWork
     /// </summary>
     class NormalLawHypotesisCheck : HypothesisCheck 
     {
+        private List<double[]> laplasTable = new List<double[]>();  
+        public List<double[]> LaplasTable
+        {
+            set { laplasTable = value; }
+        }        
+        public NormalLawHypotesisCheck()
+        {
+        }        
+        public NormalLawHypotesisCheck(List<double[]> laplasTable)
+        {
+            this.laplasTable = laplasTable;
+        }
+        
         public override bool doCheck()
         {
             throw new NotImplementedException();
