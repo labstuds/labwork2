@@ -16,7 +16,7 @@ namespace FirstLabWork
         /// <typeparam name="hiObserviedKey">Пара значений - k и alpha ("координаты" наблюдаемого значения Хи квадрат)</typeparam>        
         /// <typeparam name="intSeries">Интервальный ряд</typeparam>        
         /// <returns>Подтверждение гипотезы</returns>
-        abstract public bool doCheck(HiValueKey hiObserviedKey, IntervalVariationStatisticSeries intSeries);
+        abstract public bool doCheck(double significanceLevel, IntervalVariationStatisticSeries intSeries);
         /// <summary>
         /// Рассчитать вероятность при значении inValue
         /// </summary>
@@ -32,7 +32,7 @@ namespace FirstLabWork
     class NormalLawHypotesisCheck : HypothesisCheck 
     {
         private List<double[]> laplasTable = new List<double[]>();
-        private HiCritTable hiCritValuesTable = new HiCritTable();
+        private HiCritTable hiCritValuesTable = new HiCritTable();        
         public List<double[]> LaplasTable
         {
             set { laplasTable = value; }
@@ -43,12 +43,14 @@ namespace FirstLabWork
         public NormalLawHypotesisCheck(List<double[]> laplasTable, HiCritTable hiCritValuesTable)
         {
             this.laplasTable = laplasTable;
-            this.hiCritValuesTable = hiCritValuesTable;
+            this.hiCritValuesTable = hiCritValuesTable;            
         }
 
-        public override bool doCheck(HiValueKey hiObserviedKey, IntervalVariationStatisticSeries intSeries)
+        public override bool doCheck(double significanceLevel, IntervalVariationStatisticSeries intSeries)
         {
-            throw new NotImplementedException();
+            bool lawConfirmed = true;
+            double k = intSeries.SeriesTable.Count - 3;
+            return lawConfirmed;
         }
         protected override double probabilityFunction<T>(T inValue)
         {
@@ -61,7 +63,7 @@ namespace FirstLabWork
     /// </summary>
     class ExponentialLawCheck : HypothesisCheck
     {
-        public override bool doCheck(HiValueKey hiObserviedKey, IntervalVariationStatisticSeries intSeries)
+        public override bool doCheck(double significanceLevel, IntervalVariationStatisticSeries intSeries)
         {
             throw new NotImplementedException();
         }

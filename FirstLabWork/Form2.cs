@@ -25,8 +25,6 @@ namespace FirstLabWork
             InitializeComponent(); 
             // Заполнить ряд стандартными значениями
             setDefaultIntervalsGrid();
-            
-            
         }
 
         private void setDefaultIntervalsGrid()
@@ -46,13 +44,8 @@ namespace FirstLabWork
             btnRemoveInterval.Enabled = true;
         }
 
-       
-        private void label1_Click(object sender, EventArgs e)
-        {
+        #region IntervalReading
 
-        }
-
-        
         private void button1_Click(object sender, EventArgs e)
         {
             if (intervalsGridIsCorrect())
@@ -151,47 +144,99 @@ namespace FirstLabWork
             return tableIsValid;
         }
 
-        private void calculateGroupedSeries_Click(object sender, EventArgs e)
+        #endregion
+
+        #region LoadHiSquareTable
+        // Для чтения таблицы значений критерия Пирсона
+        public void readTable()
         {
-            if (intSeries != null)
-            {
-                groupedSeries = GroupedRelativeArequenceSeries.calculateFromIntervalSeries(intSeries, intSeries.SeriesTable.Count);
-                visualizeGroupedSeries();
-            }
+            // Открыть окно загрузки
+            if (ofdHi.ShowDialog() != DialogResult.OK)
+                return;
+
+            // Начать чтение
+            if (ofdHi.FileName != null)
+                readStrs();
             else
+                MessageBox.Show("Не был выбран файл!");
+        }
+
+
+        private void readStrs()
+        {
+            StreamReader srHi = new StreamReader(ofdHi.FileName);
+            double[] firstString = parseStr(srHi.ReadLine());
+            dgvHi.TopLeftHeaderCell.Value = "k\\alpha";
+            List<double> horizValues = new List<double>();
+            // Создать заголовки колонкам (значения альфа)
+            for (int i = 0; i < firstString.Length - 1; i++)
             {
-                MessageBox.Show("Перед тем, как рассчитывать группированный ряд относительных частот,\n извлечите интервальный ряд обычных частот", "Не был извлечен интервальный ряд частот");
+                dgvHi.Columns.Add(i.ToString(), firstString[i + 1].ToString());
+                horizValues.Add(firstString[i + 1]);
+            }
+            currentHiTable.SignificanceLevelValues = horizValues;
+            // Добавить строки со значениями критерия
+            double[] buffer;
+            for (int i = 0; !srHi.EndOfStream; i++)
+            {
+                buffer = parseStr(srHi.ReadLine());
+                dgvHi.Rows.Add();
+                dgvHi.Rows[i].HeaderCell.Value = buffer[0].ToString();
+                for (int j = 0; j < buffer.Length - 1; j++)
+                {
+                    // Сформировать "ключ" для таблицы критических точек 
+                    HiValueKey buffHiKey = new HiValueKey();
+                    buffHiKey.Horizontally = buffer[0];
+                    buffHiKey.Vertically = horizValues[j];
+
+                    dgvHi.Rows[i].Cells[j].Value = buffer[j + 1].ToString();
+                    currentHiTable.Add(buffHiKey, buffer[j + 1]);
+                }
             }
         }
 
-        private void visualizeGroupedSeries()
-        {            
-            int i = 0;
-            foreach (KeyValuePair<double, double> pair in groupedSeries.SeriesTable)
-            {                
-                dgvGroupedSeries.Rows.Add();
-                dgvGroupedSeries.Rows[i].Cells[0].Value = pair.Key.ToString();
-                dgvGroupedSeries.Rows[i].Cells[1].Value = pair.Value.ToString();
-                i++;
-            }            
+        private void загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            readTable();
+            // Добавить пункты в комбобокс уровня значимости
+            List<double> alphaValues = currentHiTable.SignificanceLevelValues;
+            cbAlphaValues.DataSource = alphaValues;
+            cbAlphaValues.Enabled = true;
+        }
+        #endregion
+
+        #region LoadLaplasTable
+
+        private void загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Открыть окно загрузки
+            if (ofdLaplas.ShowDialog() != DialogResult.OK)
+                return;
+
+            // Начать чтение
+            if (ofdLaplas.FileName != null)
+                LaplasTable = readData(ofdLaplas.FileName);
+            else
+                MessageBox.Show("Не был выбран файл!");
         }
 
-        private void calculateChars_Click(object sender, EventArgs e)
+        private List<double[]> readData(string filename)
         {
-            if (intSeries != null)
+            List<double[]> data = new List<double[]>();
+            double[] buffer;
+            // Прочитать и распарсить данные 
+            StreamReader srLaplasTable = new StreamReader(filename);
+            while (!srLaplasTable.EndOfStream)
             {
-                double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquare(groupedSeries.SeriesTable);
-                double dispersion = SeriesCharacteristics.calculateDispersion(groupedSeries.SeriesTable);
-                double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
-                double centralSamplingPoint = SeriesCharacteristics.calculateCentralSamplingPoint(groupedSeries.SeriesTable, (double)rNumber.Value);
-                double initialSamplingPoint = SeriesCharacteristics.calculateInitialSamplingPoint(groupedSeries.SeriesTable, (double)rNumber.Value);
-                characteristicsLabel.Text = String.Format("Средневыборочное квадратическое {0:f4}\n\rСредневыборочное {1:f4}\n\rДисперсия {2:f4}\n\rЦентр. выборочн. момент {3}: {4:f4}\n\rНачальный выборочный момент {5}: {6:f4}", sampleMeanSquare, sampleMean, dispersion, (int)rNumber.Value, centralSamplingPoint, (int)rNumber.Value, initialSamplingPoint);
+                buffer = parseStr(srLaplasTable.ReadLine());
+                data.Add(buffer);
             }
-            else
-            {
-                MessageBox.Show("Перед тем, как рассчитывать характеристики выборки,\nизвлечите интервальный ряд обычных частот и рассчитайте группированный ряд отновительных частот", "Не был рассчитан группированный ряд относительных частот частот");
-            }
+            return data;
         }
+
+        #endregion
+
+        #region ShowGraphics
 
         private void showGraphicsButton_Click(object sender, EventArgs e)
         {
@@ -243,51 +288,34 @@ namespace FirstLabWork
             }
         }
 
-        private void cbGraphKind_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        #endregion
 
-        }
+        #region CheckLaw
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Каждый интервал ряда распределения вводится в новой строке.\nФорма ввода следующая.\nПервое число - левая граница инервала, разделитель \';\'\nПравая граница интервала, разделитель пробел, число - частота попаданий в интервал.\nПример \'1;2 20\'", "Формат ввода интервального ряда распределения");
-        }
-                
-        private void загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Открыть окно загрузки
-            if (ofdLaplas.ShowDialog() != DialogResult.OK)
-                return;
-
-            // Начать чтение
-            if (ofdLaplas.FileName != null)
-                LaplasTable = readData(ofdLaplas.FileName);
-            else
-                MessageBox.Show("Не был выбран файл!");
-        }
-
-        private List<double[]> readData(string filename)
-        {
-            List<double[]> data = new List<double[]>();
-            double[] buffer;
-            // Прочитать и распарсить данные 
-            StreamReader srLaplasTable = new StreamReader(filename);
-            while (!srLaplasTable.EndOfStream)
-            {
-                buffer = parseStr(srLaplasTable.ReadLine());
-                data.Add(buffer);
-            }
-            return data;
-        }
-        
         private void нормальныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (readyForLawChecking())
             {
-                NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable, currentHiTable);
-                HiValueKey tmp = new HiValueKey();
-                bool lawConfirmed = nrmLawCheck.doCheck(tmp, intSeries);
+                int k = intSeries.SeriesTable.Count - 2 - 1;
+                tbK.Text = k.ToString();
+                double significanceLevel = Convert.ToDouble(cbAlphaValues.SelectedValue);
+                // Проверить гипотезу
+                NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable, currentHiTable);                
+                bool lawConfirmed = nrmLawCheck.doCheck(significanceLevel, intSeries);
             }
+        }
+
+        private void показательныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           if (readyForLawChecking())
+           {
+               int k = intSeries.SeriesTable.Count - 2;
+               tbK.Text = k.ToString();
+               double significanceLevel = Convert.ToDouble(cbAlphaValues.SelectedValue);
+               // Проверить гипотезу
+               ExponentialLawCheck expLawCheck = new ExponentialLawCheck();
+               bool lawConfirmed = expLawCheck.doCheck(significanceLevel, intSeries);
+           }
         }
 
         private bool readyForLawChecking()
@@ -313,100 +341,55 @@ namespace FirstLabWork
             return readyToCheckLaw;
         }
 
-        private void показательныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            probabilities = new List<double>(); // Вероятности
+        #endregion
 
-            //
+        private void calculateGroupedSeries_Click(object sender, EventArgs e)
+        {
             if (intSeries != null)
-            {   // Среднее выборочное
-                double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
-                // Рассчитать параметр лямбда
-                double lambda = 1/(sampleMean);
-
-                // Рассчитать вероятности
-                foreach (KeyValuePair<LinearInterval, double> pair in intSeries.SeriesTable)
-                {
-                    double answer = countProbabilityDensityExponentialLaw(lambda, pair.Key.RightBorder) - countProbabilityDensityExponentialLaw(lambda, pair.Key.LeftBorder);
-                    probabilities.Add(answer);
-                }
-
-                // Число степеней свободы
-                double k = intSeries.SeriesTable.Count - 2;
-                tbK.Text = k.ToString();
-                // Рассчитать значение хи-квадрат наблюдаемое
-                double hiObs = countHiObs();
-                
-                // Сравнить с табличным значением
-            }
-        }
-
-        private double countProbabilityDensityExponentialLaw(double lambda, double t)
-        {
-            return lambda * Math.Exp(lambda * t);
-        }
-        
-        // Рассчитать значение хи-квадрат наблюдаемое
-        private double countHiObs()
-        {
-            double answer = 0;
-            int i = 0;
-            foreach (KeyValuePair<LinearInterval, double> pair in intSeries.SeriesTable)
             {
-                answer += Math.Pow((pair.Value - intSeries.SeriesTableFreqSum), 2)/(intSeries.SeriesTableFreqSum*probabilities[i]);
-                i++;
+                groupedSeries = GroupedRelativeArequenceSeries.calculateFromIntervalSeries(intSeries, intSeries.SeriesTable.Count);
+                visualizeGroupedSeries();
             }
-            return answer;
-        }
-
-        // Для чтения таблицы значений критерия Пирсона
-        public void readTable()
-        {  
-            // Открыть окно загрузки
-            if (ofdHi.ShowDialog() != DialogResult.OK)
-                return;
-
-            // Начать чтение
-            if (ofdHi.FileName != null)
-                readStrs();
             else
-                MessageBox.Show("Не был выбран файл!");
+            {
+                MessageBox.Show("Перед тем, как рассчитывать группированный ряд относительных частот,\n извлеките интервальный ряд обычных частот", "Не был извлечен интервальный ряд частот");
+            }
+        }
+
+        private void visualizeGroupedSeries()
+        {            
+            int i = 0;
+            foreach (KeyValuePair<double, double> pair in groupedSeries.SeriesTable)
+            {                
+                dgvGroupedSeries.Rows.Add();
+                dgvGroupedSeries.Rows[i].Cells[0].Value = pair.Key.ToString();
+                dgvGroupedSeries.Rows[i].Cells[1].Value = pair.Value.ToString();
+                i++;
+            }            
+        }
+
+        private void calculateChars_Click(object sender, EventArgs e)
+        {
+            if (intSeries != null)
+            {
+                double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquare(groupedSeries.SeriesTable);
+                double dispersion = SeriesCharacteristics.calculateDispersion(groupedSeries.SeriesTable);
+                double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
+                double centralSamplingPoint = SeriesCharacteristics.calculateCentralSamplingPoint(groupedSeries.SeriesTable, (double)rNumber.Value);
+                double initialSamplingPoint = SeriesCharacteristics.calculateInitialSamplingPoint(groupedSeries.SeriesTable, (double)rNumber.Value);
+                characteristicsLabel.Text = String.Format("Средневыборочное квадратическое {0:f4}\n\rСредневыборочное {1:f4}\n\rДисперсия {2:f4}\n\rЦентр. выборочн. момент {3}: {4:f4}\n\rНачальный выборочный момент {5}: {6:f4}", sampleMeanSquare, sampleMean, dispersion, (int)rNumber.Value, centralSamplingPoint, (int)rNumber.Value, initialSamplingPoint);
+            }
+            else
+            {
+                MessageBox.Show("Перед тем, как рассчитывать характеристики выборки,\nизвлеките интервальный ряд обычных частот и рассчитайте группированный ряд отновительных частот", "Не был рассчитан группированный ряд относительных частот частот");
+            }
         }
 
         
-        private void readStrs()
-        {
-            StreamReader srHi = new StreamReader(ofdHi.FileName); 
-            double[] firstString = parseStr(srHi.ReadLine());
-            dgvHi.TopLeftHeaderCell.Value = "k\\alpha";
-            List<double> horizValues = new List<double>();
-            // Создать заголовки колонкам (значения альфа)
-            for (int i = 0; i < firstString.Length - 1; i++)
-            {
-                dgvHi.Columns.Add(i.ToString(), firstString[i + 1].ToString());
-                horizValues.Add(firstString[i + 1]);
-            }
-            currentHiTable.SignificanceLevelValues = horizValues;
-            // Добавить строки со значениями критерия
-            double[] buffer;
-            for (int i = 0; !srHi.EndOfStream; i++)
-            {
-                buffer = parseStr(srHi.ReadLine());
-                dgvHi.Rows.Add();
-                dgvHi.Rows[i].HeaderCell.Value = buffer[0].ToString();
-                for (int j = 0; j < buffer.Length - 1; j++)
-                {
-                    // Сформировать "ключ" для таблицы критических точек 
-                    HiValueKey buffHiKey = new HiValueKey();
-                    buffHiKey.Horizontally = buffer[0];
-                    buffHiKey.Vertically = horizValues[j];
+        
 
-                    dgvHi.Rows[i].Cells[j].Value = buffer[j + 1].ToString();                    
-                    currentHiTable.Add(buffHiKey, buffer[j + 1]);
-                }
-            }
-        }
 
+        
         private double[] parseStr(string str)
         {
             string[] values = str.Split(';'); // Пара значений - аргумент функции лапласа - значение            
@@ -416,14 +399,7 @@ namespace FirstLabWork
             return valuesDb;
         }
 
-        private void загрузитьКритическиеТочкиРаспределенияХиКвадратToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            readTable();
-            // Добавить пункты в комбобокс уровня значимости
-            List<double> alphaValues = currentHiTable.SignificanceLevelValues;
-            cbAlphaValues.DataSource = alphaValues;
-            cbAlphaValues.Enabled = true;
-        }
+        
 
         private void btnRemoveInterval_Click(object sender, EventArgs e)
         {   // Удалить ряд (строку таблицы)                        

@@ -186,8 +186,7 @@
             this.cbGraphKind.Location = new System.Drawing.Point(216, 171);
             this.cbGraphKind.Name = "cbGraphKind";
             this.cbGraphKind.Size = new System.Drawing.Size(163, 21);
-            this.cbGraphKind.TabIndex = 21;
-            this.cbGraphKind.SelectedIndexChanged += new System.EventHandler(this.cbGraphKind_SelectedIndexChanged);
+            this.cbGraphKind.TabIndex = 21;            
             // 
             // label4
             // 
@@ -215,8 +214,7 @@
             this.helpButton.Size = new System.Drawing.Size(37, 23);
             this.helpButton.TabIndex = 25;
             this.helpButton.Text = "?";
-            this.helpButton.UseVisualStyleBackColor = true;
-            this.helpButton.Click += new System.EventHandler(this.button2_Click);
+            this.helpButton.UseVisualStyleBackColor = true;            
             // 
             // menuStrip1
             // 
