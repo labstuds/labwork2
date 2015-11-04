@@ -26,18 +26,23 @@ namespace FirstLabWork
 
         private void setDefaultIntervalsGrid()
         {
-            int intervalsCount = 3;
-            for (int i = 0; i < intervalsCount; i++)
+            int intervalsCount = 6;
+            double oldLftBrdr, oldRghtBrdr, lftBrdr;
+            double[] freqs = {4, 13, 34, 32, 12, 5};
+            dgvIntervals.Rows.Add();
+            dgvIntervals.Rows[0].Cells[0].Value = 44;
+            dgvIntervals.Rows[0].Cells[1].Value = 46;
+            dgvIntervals.Rows[0].Cells[2].Value = freqs[0];
+            for (int i = 1; i < intervalsCount; i++)
+            {
                 dgvIntervals.Rows.Add();
-            dgvIntervals.Rows[0].Cells[0].Value = 1;
-            dgvIntervals.Rows[0].Cells[1].Value = 2;
-            dgvIntervals.Rows[0].Cells[2].Value = 5;
-            dgvIntervals.Rows[1].Cells[0].Value = 2;
-            dgvIntervals.Rows[1].Cells[1].Value = 3;
-            dgvIntervals.Rows[1].Cells[2].Value = 5;
-            dgvIntervals.Rows[2].Cells[0].Value = 3;
-            dgvIntervals.Rows[2].Cells[1].Value = 4;
-            dgvIntervals.Rows[2].Cells[2].Value = 90;
+                oldRghtBrdr = Convert.ToDouble(dgvIntervals.Rows[i-1].Cells[1].Value);
+                oldLftBrdr = Convert.ToDouble(dgvIntervals.Rows[i - 1].Cells[0].Value);
+                dgvIntervals.Rows[i].Cells[0].Value = oldRghtBrdr.ToString();
+                lftBrdr = oldRghtBrdr;
+                dgvIntervals.Rows[i].Cells[1].Value = (lftBrdr + oldRghtBrdr - oldLftBrdr).ToString();
+                dgvIntervals.Rows[i].Cells[2].Value = freqs[i].ToString();
+            }            
             btnRemoveInterval.Enabled = true;
         }
 
@@ -92,22 +97,21 @@ namespace FirstLabWork
                             MessageBox.Show(string.Format("Незаполнена {0} ячейка в {1}-й строке", j + 1, i + 1));
                         }
                     }
-                    // Проверить на "перевернутый" интервал
-                    for (int j = 0; j < dgvIntervals.Rows[i].Cells.Count - 1 && tableIsValid; j++)
+
+                    // Проверить на "перевернутый" интервал                    
+                    double leftBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
+                    double rigthBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value);
+                    if (leftBrdr > rigthBrdr)
                     {
-                        double leftBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[j].Value);
-                        double rigthBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[j + 1].Value);
-                        if (leftBrdr > rigthBrdr)
-                        {
-                            tableIsValid = false;
-                            MessageBox.Show(string.Format("У интервала в {0}-й строке неверные границы", i + 1));
-                        }
-                        else if (leftBrdr == rigthBrdr)
-                        {
-                            tableIsValid = false;
-                            MessageBox.Show(string.Format("У инетрвала в {0}-й строке равны границы", i + 1));
-                        }
+                        tableIsValid = false;
+                        MessageBox.Show(string.Format("У интервала в {0}-й строке неверные границы", i + 1));
                     }
+                    else if (leftBrdr == rigthBrdr)
+                    {
+                        tableIsValid = false;
+                        MessageBox.Show(string.Format("У инетрвала в {0}-й строке равны границы", i + 1));
+                    }
+                    
 
                     // Проверка целостности интервала
                     if (i == 0)
@@ -304,6 +308,7 @@ namespace FirstLabWork
                 // Проверить гипотезу
                 NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable, currentHiTable);                
                 bool lawConfirmed = nrmLawCheck.doCheck(significanceLevel, intSeries);
+                tbHiObs.Text = nrmLawCheck.HiObserved.ToString();
             }
         }
 
@@ -328,7 +333,7 @@ namespace FirstLabWork
                 MessageBox.Show("Необходимо загрузить таблицу значений функции Лапласа");
                 readyToCheckLaw = false;
             }
-            else if (currentHiTable.HiTable.Count == 0)
+            else if (currentHiTable.Count() == 0)
             {
                 MessageBox.Show("Необходимо загрузить таблицу критических точек Хи квадрат");
                 readyToCheckLaw = false;

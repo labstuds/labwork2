@@ -10,17 +10,16 @@ namespace FirstLabWork
     /// </summary>
     class HiCritTable
     {
-        private Dictionary<HiValueKey, double> hiTable = new Dictionary<HiValueKey, double>();
-        public Dictionary<HiValueKey, double> HiTable
-        {
-            get { return HiTable; }
-            set { hiTable = value; }
-        }
+        private Dictionary<HiValueKey, double> hiTable = new Dictionary<HiValueKey, double>();        
         private List<double> significanceLevelValues = new List<double>();  // Уровни значимости
         public List<double> SignificanceLevelValues
         {
             get { return significanceLevelValues; }
             set { significanceLevelValues = value; }
+        }
+        public int Count()
+        {
+            return hiTable.Count; 
         }
         /// <summary>
         /// Добавить элемент

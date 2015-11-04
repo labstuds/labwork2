@@ -270,6 +270,7 @@ namespace FirstLabWork
         public SortedDictionary<LinearInterval, double> SeriesTable
         {
             get { return table; }
+            set { table = value; }
         }
 
         // Сумма частот
@@ -426,11 +427,13 @@ namespace FirstLabWork
         public double LeftBorder
         {
             get { return leftBorder; }
+            set { leftBorder = value; }
         }
 
         public double RightBorder
         {
             get { return rightBorder; }
+            set { rightBorder = value; }
         }
 
         public override string ToString()
