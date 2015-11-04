@@ -14,8 +14,9 @@ namespace FirstLabWork
         /// Выполнить проверку гипотезы
         /// </summary>
         /// <typeparam name="hiObserviedKey">Пара значений - k и alpha ("координаты" наблюдаемого значения Хи квадрат)</typeparam>        
+        /// <typeparam name="intSeries">Интервальный ряд</typeparam>        
         /// <returns>Подтверждение гипотезы</returns>
-        abstract public bool doCheck(HiValueKey hiObserviedKey);
+        abstract public bool doCheck(HiValueKey hiObserviedKey, IntervalVariationStatisticSeries intSeries);
         /// <summary>
         /// Рассчитать вероятность при значении inValue
         /// </summary>
@@ -45,7 +46,7 @@ namespace FirstLabWork
             this.hiCritValuesTable = hiCritValuesTable;
         }
 
-        public override bool doCheck(HiValueKey hiObserviedKey)
+        public override bool doCheck(HiValueKey hiObserviedKey, IntervalVariationStatisticSeries intSeries)
         {
             throw new NotImplementedException();
         }
@@ -60,7 +61,7 @@ namespace FirstLabWork
     /// </summary>
     class ExponentialLawCheck : HypothesisCheck
     {
-        public override bool doCheck(HiValueKey hiObserviedKey)
+        public override bool doCheck(HiValueKey hiObserviedKey, IntervalVariationStatisticSeries intSeries)
         {
             throw new NotImplementedException();
         }

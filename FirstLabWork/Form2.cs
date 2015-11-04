@@ -282,16 +282,35 @@ namespace FirstLabWork
         
         private void нормальныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (LaplasTable.Count == 0)
-                MessageBox.Show("Необходимо загрузить таблицу значений функции Лапласа");
-            else if (currentHiTable.HiTable.Count == 0)
-                MessageBox.Show("Необходимо загрузить таблицу критических точек Хи квадрат");
-            else
+            if (readyForLawChecking())
             {
                 NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable, currentHiTable);
                 HiValueKey tmp = new HiValueKey();
-                bool lawConfirmed = nrmLawCheck.doCheck(tmp);
+                bool lawConfirmed = nrmLawCheck.doCheck(tmp, intSeries);
             }
+        }
+
+        private bool readyForLawChecking()
+        {
+            bool readyToCheckLaw;
+            if (LaplasTable.Count == 0)
+            {
+                MessageBox.Show("Необходимо загрузить таблицу значений функции Лапласа");
+                readyToCheckLaw = false;
+            }
+            else if (currentHiTable.HiTable.Count == 0)
+            {
+                MessageBox.Show("Необходимо загрузить таблицу критических точек Хи квадрат");
+                readyToCheckLaw = false;
+            }
+            else if (intSeries == null)
+            {
+                MessageBox.Show("Необходимо сформировать интервальный ряд");
+                readyToCheckLaw = false;
+            }
+            else
+                readyToCheckLaw = true;
+            return readyToCheckLaw;
         }
 
         private void показательныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
