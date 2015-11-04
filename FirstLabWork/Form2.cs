@@ -11,12 +11,9 @@ using System.IO;
 namespace FirstLabWork
 {
     public partial class Form2 : Form
-    {
-        List<double> probabilities; // Вероятности
-        List<double[]> LaplasTable = new List<double[]>(); // Таблица значений функции Лапласа
-        HiCritTable currentHiTable = new HiCritTable(); // Таблица критических точек Хи квадрат
-        LinearInterval lastReadedInterval;
-        double lastCount;
+    {        
+        List<double[]> LaplasTable = new List<double[]>();  // Таблица значений функции Лапласа
+        HiCritTable currentHiTable = new HiCritTable();     // Таблица критических точек Хи квадрат                
         IntervalVariationStatisticSeries intSeries;
         GroupedRelativeArequenceSeries groupedSeries;
         
@@ -44,6 +41,7 @@ namespace FirstLabWork
             btnRemoveInterval.Enabled = true;
         }
 
+        // Чтение интервалов из таблицы
         #region IntervalReading
 
         private void button1_Click(object sender, EventArgs e)
@@ -146,6 +144,7 @@ namespace FirstLabWork
 
         #endregion
 
+        // Загрузка критических точек Хи квадрат
         #region LoadHiSquareTable
         // Для чтения таблицы значений критерия Пирсона
         public void readTable()
@@ -205,6 +204,7 @@ namespace FirstLabWork
         }
         #endregion
 
+        // Загрузка таблицы Лапласа
         #region LoadLaplasTable
 
         private void загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -236,6 +236,7 @@ namespace FirstLabWork
 
         #endregion
 
+        // Построение графиков
         #region ShowGraphics
 
         private void showGraphicsButton_Click(object sender, EventArgs e)
@@ -290,6 +291,7 @@ namespace FirstLabWork
 
         #endregion
 
+        // Проверка закона
         #region CheckLaw
 
         private void нормальныйЗаконToolStripMenuItem_Click(object sender, EventArgs e)
@@ -343,6 +345,9 @@ namespace FirstLabWork
 
         #endregion
 
+        // Обработка интервалов (извлечение, расчет характеристик, вывод групированного ряда)
+        #region IntervalsProcessing
+
         private void calculateGroupedSeries_Click(object sender, EventArgs e)
         {
             if (intSeries != null)
@@ -357,15 +362,15 @@ namespace FirstLabWork
         }
 
         private void visualizeGroupedSeries()
-        {            
+        {
             int i = 0;
             foreach (KeyValuePair<double, double> pair in groupedSeries.SeriesTable)
-            {                
+            {
                 dgvGroupedSeries.Rows.Add();
                 dgvGroupedSeries.Rows[i].Cells[0].Value = pair.Key.ToString();
                 dgvGroupedSeries.Rows[i].Cells[1].Value = pair.Value.ToString();
                 i++;
-            }            
+            }
         }
 
         private void calculateChars_Click(object sender, EventArgs e)
@@ -385,11 +390,8 @@ namespace FirstLabWork
             }
         }
 
-        
-        
-
-
-        
+        #endregion
+                
         private double[] parseStr(string str)
         {
             string[] values = str.Split(';'); // Пара значений - аргумент функции лапласа - значение            
@@ -398,8 +400,6 @@ namespace FirstLabWork
                 valuesDb[i] = double.Parse(values[i]);
             return valuesDb;
         }
-
-        
 
         private void btnRemoveInterval_Click(object sender, EventArgs e)
         {   // Удалить ряд (строку таблицы)                        
