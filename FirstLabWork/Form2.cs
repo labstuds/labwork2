@@ -14,6 +14,7 @@ namespace FirstLabWork
     {
         List<double> probabilities; // Вероятности
         List<double[]> LaplasTable = new List<double[]>(); // Таблица значений функции Лапласа
+        HiCritTable currentHiTable = new HiCritTable(); // Таблица критических точек Хи квадрат
         LinearInterval lastReadedInterval;
         double lastCount;
         IntervalVariationStatisticSeries intSeries;
@@ -283,10 +284,13 @@ namespace FirstLabWork
         {
             if (LaplasTable.Count == 0)
                 MessageBox.Show("Необходимо загрузить таблицу значений функции Лапласа");
+            else if (currentHiTable.HiTable.Count == 0)
+                MessageBox.Show("Необходимо загрузить таблицу критических точек Хи квадрат");
             else
             {
-                NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable);
-                bool lawConfirmed = nrmLawCheck.doCheck();
+                NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable, currentHiTable);
+                HiValueKey tmp = new HiValueKey();
+                bool lawConfirmed = nrmLawCheck.doCheck(tmp);
             }
         }
 
@@ -338,19 +342,16 @@ namespace FirstLabWork
 
         // Для чтения таблицы значений критерия Пирсона
         public void readTable()
-        {
-            if (dgvHi.Rows.Count < 2 )
-            {
-                // Открыть окно загрузки
-                if (ofdHi.ShowDialog() != DialogResult.OK)
-                    return;
+        {  
+            // Открыть окно загрузки
+            if (ofdHi.ShowDialog() != DialogResult.OK)
+                return;
 
-                // Начать чтение
-                if (ofdHi.FileName != null)
-                    readStrs();
-                else
-                    MessageBox.Show("Не был выбран файл!");
-            }
+            // Начать чтение
+            if (ofdHi.FileName != null)
+                readStrs();
+            else
+                MessageBox.Show("Не был выбран файл!");
         }
 
         
@@ -359,19 +360,34 @@ namespace FirstLabWork
             StreamReader srHi = new StreamReader(ofdHi.FileName); 
             double[] firstString = parseStr(srHi.ReadLine());
             dgvHi.TopLeftHeaderCell.Value = "k\\alpha";
+            List<double> horizValues = new List<double>();
             // Создать заголовки колонкам (значения альфа)
-            for(int i = 0; i < firstString.Length-1; i++)
+            for (int i = 0; i < firstString.Length - 1; i++)
+            {
                 dgvHi.Columns.Add(i.ToString(), firstString[i + 1].ToString());
+                horizValues.Add(firstString[i + 1]);
+            }
              
             // Добавить строки со значениями критерия
             double[] buffer;
+            
             for (int i = 0; !srHi.EndOfStream; i++)
             {
                 buffer = parseStr(srHi.ReadLine());
                 dgvHi.Rows.Add();
-                dgvHi.Rows[i].HeaderCell.Value = buffer[0].ToString(); ;
-                for (int j = 0; j < buffer.Length-1; j++)
-                    dgvHi.Rows[i].Cells[j].Value = buffer[j + 1].ToString();
+                dgvHi.Rows[i].HeaderCell.Value = buffer[0].ToString();
+                // Сформировать "ключ" для таблицы критических точек
+                //buffHiKey.Horizontally = horizValues[i];
+                
+                for (int j = 0; j < buffer.Length - 1; j++)
+                {
+                    HiValueKey buffHiKey = new HiValueKey();
+                    buffHiKey.Horizontally = buffer[0];
+                    buffHiKey.Vertically = horizValues[j];
+
+                    dgvHi.Rows[i].Cells[j].Value = buffer[j + 1].ToString();                    
+                    currentHiTable.Add(buffHiKey, buffer[j + 1]);
+                }
             }
         }
 

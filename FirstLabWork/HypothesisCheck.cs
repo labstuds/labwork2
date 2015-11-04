@@ -13,8 +13,9 @@ namespace FirstLabWork
         /// <summary>
         /// Выполнить проверку гипотезы
         /// </summary>
+        /// <typeparam name="hiObserviedKey">Пара значений - k и alpha ("координаты" наблюдаемого значения Хи квадрат)</typeparam>        
         /// <returns>Подтверждение гипотезы</returns>
-        abstract public bool doCheck();
+        abstract public bool doCheck(HiValueKey hiObserviedKey);
         /// <summary>
         /// Рассчитать вероятность при значении inValue
         /// </summary>
@@ -29,7 +30,8 @@ namespace FirstLabWork
     /// </summary>
     class NormalLawHypotesisCheck : HypothesisCheck 
     {
-        private List<double[]> laplasTable = new List<double[]>();  
+        private List<double[]> laplasTable = new List<double[]>();
+        private HiCritTable hiCritValuesTable = new HiCritTable();
         public List<double[]> LaplasTable
         {
             set { laplasTable = value; }
@@ -37,12 +39,13 @@ namespace FirstLabWork
         public NormalLawHypotesisCheck()
         {
         }        
-        public NormalLawHypotesisCheck(List<double[]> laplasTable)
+        public NormalLawHypotesisCheck(List<double[]> laplasTable, HiCritTable hiCritValuesTable)
         {
             this.laplasTable = laplasTable;
+            this.hiCritValuesTable = hiCritValuesTable;
         }
-        
-        public override bool doCheck()
+
+        public override bool doCheck(HiValueKey hiObserviedKey)
         {
             throw new NotImplementedException();
         }
@@ -57,7 +60,7 @@ namespace FirstLabWork
     /// </summary>
     class ExponentialLawCheck : HypothesisCheck
     {
-        public override bool doCheck()
+        public override bool doCheck(HiValueKey hiObserviedKey)
         {
             throw new NotImplementedException();
         }
