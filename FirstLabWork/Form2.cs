@@ -325,9 +325,9 @@ namespace FirstLabWork
                // Проверить гипотезу
                ExponentialLawCheck expLawCheck = new ExponentialLawCheck();
                if (expLawCheck.doCheck(significanceLevel, intSeries))
-                   MessageBox.Show("Гипотеза о нормальном законе распределения не опровергается");
+                   MessageBox.Show("Гипотеза о показательном законе распределения не опровергается");
                else
-                   MessageBox.Show("Гипотеза о нормальном законе распределения опровергается");
+                   MessageBox.Show("Гипотеза о показательном законе распределения опровергается");
                
            }
         }
