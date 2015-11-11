@@ -60,7 +60,14 @@ namespace FirstLabWork
         /// <param name="k">Число степеней свободы</param>
         /// <param name="significanceLevel">Уровень значимости</param>
         /// <returns></returns>
-        abstract protected double findHiCritical(double k, double significanceLevel);
+        protected double findHiCritical(double k, double significanceLevel)
+        {
+            double answer = 0;
+            foreach (KeyValuePair<HiValueKey, double> pair in hiCritValuesTable.HiTable)
+                if (pair.Key.Horizontally == k && pair.Key.Vertically == significanceLevel)
+                    answer = pair.Value;
+            return answer;
+        }
     }
 
     /// <summary>
@@ -98,16 +105,7 @@ namespace FirstLabWork
                 lawConfirmed = false;
             return lawConfirmed;
         }
-
-        protected override double findHiCritical(double k, double significanceLevel)
-        {
-            double answer = 0;
-            foreach(KeyValuePair<HiValueKey, double> pair in hiCritValuesTable.HiTable)
-                if (pair.Key.Horizontally == k && pair.Key.Vertically == significanceLevel)
-                    answer = pair.Value;
-            return answer;
-        }
-
+        
         protected override List<double> probabilityFunction(IntervalVariationStatisticSeries intervalSeries)
         {
             List<double> probabilities = new List<double>();
@@ -198,10 +196,6 @@ namespace FirstLabWork
         protected override double countHiObserved(IntervalVariationStatisticSeries intSeries)
         {
             throw new NotImplementedException();
-        }
-        protected override double findHiCritical(double k, double significanceLevel)
-        {
-            throw new NotImplementedException();
-        }   
+        } 
     }
 }

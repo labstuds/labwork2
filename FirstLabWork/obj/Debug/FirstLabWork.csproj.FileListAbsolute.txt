@@ -155,3 +155,14 @@ c:\!work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.
 c:\!work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
 c:\!work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.exe
 c:\!work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.pdb
+c:\work\_git\labwork2\FirstLabWork\bin\Debug\FirstLabWork.exe.config
+c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.exe
+c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.pdb
+c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.DisplayForm.resources
+c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.EmpiricFunction.resources
+c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.Form1.resources
+c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.Form2.resources
+c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.resources
+c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
+c:\work\_git\labwork2\FirstLabWork\bin\Debug\FirstLabWork.exe
+c:\work\_git\labwork2\FirstLabWork\bin\Debug\FirstLabWork.pdb
