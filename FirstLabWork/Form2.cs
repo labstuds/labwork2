@@ -167,6 +167,8 @@ namespace FirstLabWork
 
         private void readStrs()
         {
+            dgvHi.Rows.Clear();
+            dgvHi.Columns.Clear();
             StreamReader srHi = new StreamReader(ofdHi.FileName);
             double[] firstString = parseStr(srHi.ReadLine());
             dgvHi.TopLeftHeaderCell.Value = "k\\alpha";
