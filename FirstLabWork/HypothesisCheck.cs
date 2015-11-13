@@ -185,17 +185,52 @@ namespace FirstLabWork
     /// </summary>
     class ExponentialLawCheck : HypothesisCheck
     {
+        public ExponentialLawCheck(HiCritTable hiCritValuesTable)
+        {
+            this.hiCritValuesTable = hiCritValuesTable;
+        }
+
         public override bool doCheck(double significanceLevel, IntervalVariationStatisticSeries intSeries)
         {
-            throw new NotImplementedException();
+            bool lawConfirmed = true;
+            double k = intSeries.SeriesTable.Count - 2;
+            // Рассчитать вероятности
+            probabilities = probabilityFunction(intSeries);
+            // Рассчитать наблюдаемое значение критерия Хи квадрат
+            hiObserved = countHiObserved(intSeries);
+            hiCritical = findHiCritical(k, significanceLevel);
+            if (hiObserved <= hiCritical)
+                lawConfirmed = true;
+            else
+                lawConfirmed = false;
+            return lawConfirmed;
         }
         protected override List<double> probabilityFunction(IntervalVariationStatisticSeries inValue)
         {
-            throw new NotImplementedException();
+            List<double> probs = new List<double>();    // Вероятности
+            GroupedRelativeArequenceSeries groupedSeries = GroupedRelativeArequenceSeries.calculateFromIntervalSeries(inValue, inValue.SeriesTable.Count);
+            double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
+            double lambda = 1 / sampleMean;
+            double buff;
+            foreach(KeyValuePair<LinearInterval, double> pair in inValue.SeriesTable)
+            {
+                buff = Math.Exp(-lambda * pair.Key.LeftBorder) - Math.Exp(-lambda * pair.Key.RightBorder);
+                probs.Add(buff);
+            }
+            return probs;
         }
         protected override double countHiObserved(IntervalVariationStatisticSeries intSeries)
         {
-            throw new NotImplementedException();
+            double hiObserved = 0;
+            double theoryFreq;
+            int i = 0;
+            foreach(KeyValuePair<LinearInterval, double> pair in intSeries.SeriesTable)
+            {
+                theoryFreq = pair.Value * probabilities[i];
+                hiObserved += Math.Pow(pair.Value - theoryFreq, 2) / Math.Pow(theoryFreq, 2);
+                i++;
+            }
+            return hiObserved;
         } 
     }
 }

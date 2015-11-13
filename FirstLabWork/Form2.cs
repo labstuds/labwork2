@@ -325,12 +325,12 @@ namespace FirstLabWork
                tbK.Text = k.ToString();
                double significanceLevel = Convert.ToDouble(cbAlphaValues.SelectedValue);
                // Проверить гипотезу
-               ExponentialLawCheck expLawCheck = new ExponentialLawCheck();
+               ExponentialLawCheck expLawCheck = new ExponentialLawCheck(currentHiTable);
                if (expLawCheck.doCheck(significanceLevel, intSeries))
                    MessageBox.Show("Гипотеза о показательном законе распределения не опровергается");
                else
                    MessageBox.Show("Гипотеза о показательном законе распределения опровергается");
-               
+               tbHiObs.Text = expLawCheck.HiObserved.ToString();
            }
         }
 

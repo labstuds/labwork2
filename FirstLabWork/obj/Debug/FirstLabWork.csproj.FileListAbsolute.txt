@@ -166,3 +166,4 @@ c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.r
 c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
 c:\work\_git\labwork2\FirstLabWork\bin\Debug\FirstLabWork.exe
 c:\work\_git\labwork2\FirstLabWork\bin\Debug\FirstLabWork.pdb
+c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.csprojResolveAssemblyReference.cache
