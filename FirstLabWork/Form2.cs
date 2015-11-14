@@ -112,14 +112,14 @@ namespace FirstLabWork
                     bordersDifference = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
                 else
                 {
-                    double currentBordersDifferenice = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
-                    if (bordersDifference != currentBordersDifferenice)
+                    double currentBordersDifference = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
+                    if (bordersDifference != currentBordersDifference)
                     {
                         tableIsValid = false;
                         MessageBox.Show("Обнаружен непропорциональный интервал");
                     }
                     else
-                        bordersDifference = currentBordersDifferenice;
+                        bordersDifference = currentBordersDifference;
                 }
             }
         }
