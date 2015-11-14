@@ -37,17 +37,16 @@ namespace FirstLabWork
         /// <summary>
         /// Выполнить проверку гипотезы
         /// </summary>
-        /// <typeparam name="hiObserviedKey">Пара значений - k и alpha ("координаты" наблюдаемого значения Хи квадрат)</typeparam>        
-        /// <typeparam name="intSeries">Интервальный ряд</typeparam>        
+        /// <param name="significanceLevel">Уровень значимости</param>
+        /// <param name="intSeries">Интервальный ряд</param>
         /// <returns>Подтверждение гипотезы</returns>
         abstract public bool doCheck(double significanceLevel, IntervalVariationStatisticSeries intSeries);
         /// <summary>
         /// Рассчитать вероятности
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="inValue">Интервал для расчета вероятности</param>
-        /// <returns></returns>
-        abstract protected List<double> probabilityFunction(IntervalVariationStatisticSeries inValue);
+        /// <param name="inValue">Интервальный ряд</param>
+        /// <returns>Коллекция вероятностей</returns>
+        abstract protected List<double> probabilitiesCount(IntervalVariationStatisticSeries inValue);
         /// <summary>
         /// Рассчитать наблюдаемое значение Хи квадрат
         /// </summary>
@@ -59,7 +58,7 @@ namespace FirstLabWork
         /// </summary>
         /// <param name="k">Число степеней свободы</param>
         /// <param name="significanceLevel">Уровень значимости</param>
-        /// <returns></returns>
+        /// <returns>Критическая точка Хи квадрат</returns>
         protected double findHiCritical(double k, double significanceLevel)
         {
             double answer = 0;
@@ -90,14 +89,15 @@ namespace FirstLabWork
         }
         public override bool doCheck(double significanceLevel, IntervalVariationStatisticSeries intSeries)
         {
-            bool lawConfirmed = true;
-            double k = intSeries.SeriesTable.Count - 3;
+            bool lawConfirmed = true;   // Подтверждение закона
+            double k = intSeries.SeriesTable.Count - 3; // Количество степеней свободы
             // Сформировать новый интервальный ряд
             IntervalVariationStatisticSeries newInterval = createNewIntervalSeries(intSeries);
             // Рассчитать вероятности
-            probabilities = probabilityFunction(newInterval);
+            probabilities = probabilitiesCount(newInterval);
             // Рассчитать наблюдаемое значение критерия Хи квадрат
             hiObserved = countHiObserved(newInterval);
+            // Найти критическую точку в таблице Хи квадрат
             hiCritical = findHiCritical(k, significanceLevel);
             if (hiObserved <= hiCritical)
                 lawConfirmed = true;
@@ -106,20 +106,21 @@ namespace FirstLabWork
             return lawConfirmed;
         }
         
-        protected override List<double> probabilityFunction(IntervalVariationStatisticSeries intervalSeries)
+        protected override List<double> probabilitiesCount(IntervalVariationStatisticSeries intervalSeries)
         {
+            // Рассчитанные вероятности
             List<double> probabilities = new List<double>();
             double firstArg = 0, secondArg = 0;
             int i = 0;
             foreach (KeyValuePair<LinearInterval, double> pair in intervalSeries.SeriesTable)
             {
                 if (i == 0)
-                {
+                {   // Левая граница последовательности инетрвалов (-inf)
                     secondArg = -5;
                     firstArg = pair.Key.RightBorder;
                 }
                 else if (i == intervalSeries.SeriesTable.Count - 1)
-                {
+                {   // Правая граница последовательности инетрвалов (+inf)
                     firstArg = 5;
                     secondArg = pair.Key.LeftBorder;
                 }
@@ -127,8 +128,7 @@ namespace FirstLabWork
                 {
                     firstArg = pair.Key.RightBorder;
                     secondArg = pair.Key.LeftBorder;
-
-                }
+                }               
                 if (secondArg < 0)
                     probabilities.Add(Math.Round(getLaplasFunctionValue(secondArg) - getLaplasFunctionValue(firstArg), 3));
                 else
@@ -195,7 +195,7 @@ namespace FirstLabWork
             bool lawConfirmed = true;
             double k = intSeries.SeriesTable.Count - 2;
             // Рассчитать вероятности
-            probabilities = probabilityFunction(intSeries);
+            probabilities = probabilitiesCount(intSeries);
             // Рассчитать наблюдаемое значение критерия Хи квадрат
             hiObserved = countHiObserved(intSeries);
             hiCritical = findHiCritical(k, significanceLevel);
@@ -205,7 +205,7 @@ namespace FirstLabWork
                 lawConfirmed = false;
             return lawConfirmed;
         }
-        protected override List<double> probabilityFunction(IntervalVariationStatisticSeries inValue)
+        protected override List<double> probabilitiesCount(IntervalVariationStatisticSeries inValue)
         {
             List<double> probs = new List<double>();    // Вероятности
             GroupedRelativeArequenceSeries groupedSeries = GroupedRelativeArequenceSeries.calculateFromIntervalSeries(inValue, inValue.SeriesTable.Count);
