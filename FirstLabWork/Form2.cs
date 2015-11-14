@@ -88,62 +88,112 @@ namespace FirstLabWork
                 // Проверить валидность таблицы
                 for (int i = 0; i < dgvIntervals.Rows.Count && tableIsValid; i++)
                 {
-                    // Проверить на незаполненные значения
-                    for (int j = 0; j < dgvIntervals.Rows[i].Cells.Count && tableIsValid; j++)
-                    {
-                        if (dgvIntervals.Rows[i].Cells[j].Value == null)
-                        {
-                            tableIsValid = false;
-                            MessageBox.Show(string.Format("Незаполнена {0} ячейка в {1}-й строке", j + 1, i + 1));
-                        }
-                    }
-
-                    // Проверить на "перевернутый" интервал                    
-                    double leftBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
-                    double rigthBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value);
-                    if (leftBrdr > rigthBrdr)
-                    {
-                        tableIsValid = false;
-                        MessageBox.Show(string.Format("У интервала в {0}-й строке неверные границы", i + 1));
-                    }
-                    else if (leftBrdr == rigthBrdr)
-                    {
-                        tableIsValid = false;
-                        MessageBox.Show(string.Format("У инетрвала в {0}-й строке равны границы", i + 1));
-                    }
-                    
-
-                    // Проверка целостности интервала
-                    if (i == 0)
-                        oldRghtBrdr = Convert.ToDouble(dgvIntervals.Rows[0].Cells[1].Value);
-                    else
-                    {
-                        if (oldRghtBrdr != Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value))
-                        {
-                            tableIsValid = false;
-                            MessageBox.Show(string.Format("Нарушена целостность интервала в {0}-й строке", i + 1));
-                        }
-                        else
-                            oldRghtBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value);
-                    }
-
-                    // Проверка равенства интервальных отрезков
-                    if(i == 0)
-                        bordersDifference = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
-                    else
-                    {
-                        double currentBordersDifferenice = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
-                        if (bordersDifference != currentBordersDifferenice)
-                        {
-                            tableIsValid = false;
-                            MessageBox.Show("Обнаружен непропорциональный интервал");
-                        }
-                        else
-                            bordersDifference = currentBordersDifferenice;
-                    }
+                    checkEmptyValuesInRow(ref tableIsValid, i);     // Проверить на незаполненные значения
+                    checkIntervalBorders(ref tableIsValid, i);  // Проверить на "перевернутые" интервалы
+                    checkIntervalIntegrity(ref tableIsValid, ref oldRghtBrdr, i);   // Проверить на целостность интервалов
+                    ckeckIntervalsLength(ref tableIsValid, ref bordersDifference, i);   // Проверить на длину интервалов
                 }
             }
             return tableIsValid;
+        }
+
+        /// <summary>
+        /// Проверить длину интервалов
+        /// </summary>
+        /// <param name="tableIsValid">Корректна ли таблица</param>
+        /// <param name="bordersDifference">Разница между границами интервала</param>
+        /// <param name="i">Строка, в которой ведется проверка</param>
+        /// <returns></returns>
+        private void ckeckIntervalsLength(ref bool tableIsValid, ref double bordersDifference, int i)
+        {
+            if (tableIsValid)
+            {
+                if (i == 0)
+                    bordersDifference = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
+                else
+                {
+                    double currentBordersDifferenice = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
+                    if (bordersDifference != currentBordersDifferenice)
+                    {
+                        tableIsValid = false;
+                        MessageBox.Show("Обнаружен непропорциональный интервал");
+                    }
+                    else
+                        bordersDifference = currentBordersDifferenice;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Проверить целостность интервала
+        /// </summary>
+        /// <param name="tableIsValid">Корректна ли таблица</param>
+        /// <param name="oldRghtBrdr">Правая граница предыдущего интервала</param>
+        /// <param name="i">Номер строки с текущим интервалом</param>
+        /// <returns></returns>
+        private void checkIntervalIntegrity(ref bool tableIsValid, ref double oldRghtBrdr, int i)
+        {
+            if (tableIsValid)
+            {
+                if (i == 0)
+                    oldRghtBrdr = Convert.ToDouble(dgvIntervals.Rows[0].Cells[1].Value);
+                else
+                {
+                    if (oldRghtBrdr != Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value))
+                    {
+                        tableIsValid = false;
+                        MessageBox.Show(string.Format("Нарушена целостность интервала в {0}-й строке", i + 1));
+                    }
+                    else
+                        oldRghtBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Проверить на "перевернутый" интервал
+        /// </summary>        
+        /// <param name="tableIsValid">Корректна ли таблица</param>
+        /// <param name="i">Номер строки, в которой ведется проверка</param>
+        /// <returns></returns>
+        private void checkIntervalBorders(ref bool tableIsValid, int i)
+        {
+            if (tableIsValid)
+            {
+                double leftBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
+                double rigthBrdr = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value);
+                if (leftBrdr > rigthBrdr)
+                {
+                    tableIsValid = false;
+                    MessageBox.Show(string.Format("У интервала в {0}-й строке неверные границы", i + 1));
+                }
+                else if (leftBrdr == rigthBrdr)
+                {
+                    tableIsValid = false;
+                    MessageBox.Show(string.Format("У инетрвала в {0}-й строке равны границы", i + 1));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Проверить на незаполненные значения
+        /// </summary>        
+        /// <param name="tableIsValid">Корректна ли таблица</param>
+        /// <param name="i">Номер строки, в которой идет проверка</param>
+        /// <returns></returns>
+        private void checkEmptyValuesInRow(ref bool tableIsValid, int i)
+        {
+            if (tableIsValid)
+            {
+                for (int j = 0; j < dgvIntervals.Rows[i].Cells.Count && tableIsValid; j++)
+                {
+                    if (dgvIntervals.Rows[i].Cells[j].Value == null)
+                    {
+                        tableIsValid = false;
+                        MessageBox.Show(string.Format("Незаполнена {0} ячейка в {1}-й строке", j + 1, i + 1));
+                    }
+                }
+            }
         }
 
         #endregion
