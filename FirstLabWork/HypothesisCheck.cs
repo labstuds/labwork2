@@ -26,6 +26,8 @@ namespace FirstLabWork
         {
             get { return hiCritical; }
         }
+
+
         /// <summary>
         /// Вероятности
         /// </summary>
@@ -74,6 +76,7 @@ namespace FirstLabWork
     /// </summary>
     class NormalLawHypotesisCheck : HypothesisCheck 
     {
+        Dictionary<double, double> laplasDictionary;
         private List<double[]> laplasTable = new List<double[]>();
         public List<double[]> LaplasTable
         {
@@ -156,13 +159,41 @@ namespace FirstLabWork
 
         private double getLaplasFunctionValue(double argument)
         {
-            argument = Math.Abs(Math.Round(argument, 2));   // Т.к. значения аргументов в таблице Лапласа округлены до двух знаков
-            double value = 0;
-            foreach(double[] pair in laplasTable)            
-                if (pair[0] == argument)
-                    value = pair[1];
-            return Math.Round(value, 4);
+            convertTableIntoHash();
+            double leftBorder = 0, rightBorder = 0;
+            double result = -1;
+            foreach (KeyValuePair<double,double> pair in laplasDictionary)      
+            {
+                if (pair.Key < argument)
+                {
+                    leftBorder = pair.Key;
+                }
+                else if (pair.Key > argument)
+                {
+                    rightBorder = pair.Key;
+                    return linearInterpolation(leftBorder, rightBorder, argument,laplasDictionary);
+                }
+                else
+                {
+                    return pair.Value;
+                }
+            }
+            return result;
         }
+
+        void convertTableIntoHash()
+        {
+            foreach (double[] pair in laplasTable)
+            {
+                laplasDictionary.Add(pair[0], pair[1]);
+            }
+        }
+
+        public double linearInterpolation(double left, double right, double current, Dictionary<double, double> torqueByRPM)
+        {
+            return (torqueByRPM[left] + ((torqueByRPM[right] - torqueByRPM[left]) / (right - left)) * (current - left));
+        }
+
         private IntervalVariationStatisticSeries createNewIntervalSeries(IntervalVariationStatisticSeries old)
         {
             GroupedRelativeArequenceSeries groupedSeries = GroupedRelativeArequenceSeries.calculateFromIntervalSeries(old, old.SeriesTable.Count);

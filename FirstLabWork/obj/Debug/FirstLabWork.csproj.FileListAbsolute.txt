@@ -167,3 +167,6 @@ c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResourc
 c:\work\_git\labwork2\FirstLabWork\bin\Debug\FirstLabWork.exe
 c:\work\_git\labwork2\FirstLabWork\bin\Debug\FirstLabWork.pdb
 c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.csprojResolveAssemblyReference.cache
+D:\Repos\labwork2teorver\FirstLabWork\bin\Debug\FirstLabWork.exe.config
+D:\Repos\labwork2teorver\FirstLabWork\obj\Debug\FirstLabWork.exe
+D:\Repos\labwork2teorver\FirstLabWork\obj\Debug\FirstLabWork.pdb
