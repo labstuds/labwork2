@@ -58,6 +58,12 @@
     <Compile Include="DisplayForm.designer.cs">
       <DependentUpon>DisplayForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="distributionGraphic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="distributionGraphic.Designer.cs">
+      <DependentUpon>distributionGraphic.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmpiricFunction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DisplayForm.resx">
       <DependentUpon>DisplayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="distributionGraphic.resx">
+      <DependentUpon>distributionGraphic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmpiricFunction.resx">
       <DependentUpon>EmpiricFunction.cs</DependentUpon>

@@ -15,10 +15,9 @@ namespace FirstLabWork
 	public partial class CheckDistributionForm : Form
 	{
         Func<double, double> getLaplasFuncValue;
-		public CheckDistributionForm(Func<double,double> getLaplas)
+		public CheckDistributionForm()
 		{
 			InitializeComponent();
-            getLaplasFuncValue = getLaplas;
 		}
 
         public void drawNormalDistribution(double dispertion, double sq, double m)
@@ -28,18 +27,34 @@ namespace FirstLabWork
             rightBorder = m + 3 * sq;
             double step = 6 * sq / 20;
             double currentPosition = leftBorder;
-            Dictionary<double, double> distr=new Dictionary<double,double>();
+            SortedDictionary<double, double> distr = new SortedDictionary<double, double>();
             for (int i = 0; i < 20; i++)
             {
-                distr.Add(currentPosition, (1/sq*Math.Sqrt(2*Math.PI))*Math.Pow(Math.E,-Math.Pow(currentPosition-m,2)/(2*Math.Pow(sq,2))));
+                distr.Add(currentPosition, 2*(1/(sq*Math.Sqrt(2*Math.PI)))*Math.Pow(Math.E,(-Math.Pow(currentPosition-m,2))/(2*Math.Pow(sq,2))));
                 currentPosition += step;
             }
-            draw_distribution(distr, "График теоретической плотности распределения",m,sq);
+            draw_distribution(distr, "График теоретической плотности распределения", m, sq, Color.FromArgb(255, 255, 255, 0));
+        }
+
+        public void drawExpDistribution(double dispertion, double sq, double m)
+        {
+            double leftBorder = 0, rightBorder = 0;
+            rightBorder = m + 5 * dispertion;
+            double step = 10 * dispertion / 20;
+            double currentPosition = leftBorder;
+            SortedDictionary<double, double> distr = new SortedDictionary<double, double>();
+            double lambda = 1/m;
+            for (int i = 0; i < 20; i++)
+            {
+                distr.Add(currentPosition, lambda*Math.Pow(Math.E,-lambda*currentPosition));
+                currentPosition += step;
+            }
+            draw_distribution(distr, "График теоретической плотности распределения", m, sq, Color.FromArgb(255,255,0,0));
         }
 		#region GRAPHICS
 
 		//Строит график
-		public void draw_distribution( Dictionary<double, double> distr,String distLabel,double m,double sq)
+        public void draw_distribution(SortedDictionary<double, double> distr, String distLabel, double m, double sq, Color color)
 		{
             setup_graph(graphTheor);
 
@@ -47,13 +62,13 @@ namespace FirstLabWork
             var pane = graphTheor.GraphPane;
 			SymbolType type = SymbolType.Default;
 			if (distr.Count > 20) type = SymbolType.None;
-			var curve = pane.AddCurve("", dictionaryToList(distr), Color.FromArgb(255, 39, 174, 96),type);
+			var curve = pane.AddCurve("", dictionaryToList(distr), color,type);
             graphTheor.AxisChange();
             graphTheor.Invalidate();
 		}
 
 		//Преобразует словарь в набор точек
-		PointPairList dictionaryToList(Dictionary<double, double> data)
+        PointPairList dictionaryToList(SortedDictionary<double, double> data)
 		{
 			var list = new PointPairList();
 			foreach (var x in data) list.Add(x.Key, x.Value);

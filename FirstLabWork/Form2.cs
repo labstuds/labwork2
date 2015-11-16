@@ -342,6 +342,34 @@ namespace FirstLabWork
                         }
                         break;
                     }
+                case 3:
+                    {
+                        if (groupedSeries != null)
+                        {
+                            CheckDistributionForm wnd = new CheckDistributionForm();
+                            double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquare(groupedSeries.SeriesTable);
+                            double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
+                            double dispersion = SeriesCharacteristics.calculateDispersion(groupedSeries.SeriesTable);
+                            wnd.draw_distribution(groupedSeries.SeriesTable, "Выборка", sampleMean, sampleMeanSquare, Color.FromArgb(255,255,0,255));
+                            wnd.drawNormalDistribution(dispersion, sampleMeanSquare, sampleMean);
+                            wnd.Show();
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        if (groupedSeries != null)
+                        {
+                            CheckDistributionForm wnd = new CheckDistributionForm();
+                            double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquare(groupedSeries.SeriesTable);
+                            double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
+                            double dispersion = SeriesCharacteristics.calculateDispersion(groupedSeries.SeriesTable);
+                            wnd.draw_distribution(groupedSeries.SeriesTable, "Выборка", sampleMean, sampleMeanSquare, Color.FromArgb(255,255,0,255));
+                            wnd.drawExpDistribution(dispersion, sampleMeanSquare, sampleMean);
+                            wnd.Show();
+                        }
+                        break;
+                    }
             }
         }
 

@@ -164,9 +164,9 @@
             // 
             // showGraphicsButton
             // 
-            this.showGraphicsButton.Location = new System.Drawing.Point(385, 171);
+            this.showGraphicsButton.Location = new System.Drawing.Point(477, 171);
             this.showGraphicsButton.Name = "showGraphicsButton";
-            this.showGraphicsButton.Size = new System.Drawing.Size(171, 23);
+            this.showGraphicsButton.Size = new System.Drawing.Size(79, 23);
             this.showGraphicsButton.TabIndex = 22;
             this.showGraphicsButton.Text = "Построить";
             this.showGraphicsButton.UseVisualStyleBackColor = true;
@@ -182,11 +182,13 @@
             this.cbGraphKind.Items.AddRange(new object[] {
             "Полигон",
             "Гистограмма",
-            "Функция распределения"});
+            "Функция распределения",
+            "График теор. распр. нормального закона",
+            "График теор. показательного закода"});
             this.cbGraphKind.Location = new System.Drawing.Point(216, 171);
             this.cbGraphKind.Name = "cbGraphKind";
-            this.cbGraphKind.Size = new System.Drawing.Size(163, 21);
-            this.cbGraphKind.TabIndex = 21;            
+            this.cbGraphKind.Size = new System.Drawing.Size(255, 21);
+            this.cbGraphKind.TabIndex = 21;
             // 
             // label4
             // 
@@ -214,7 +216,7 @@
             this.helpButton.Size = new System.Drawing.Size(37, 23);
             this.helpButton.TabIndex = 25;
             this.helpButton.Text = "?";
-            this.helpButton.UseVisualStyleBackColor = true;            
+            this.helpButton.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
