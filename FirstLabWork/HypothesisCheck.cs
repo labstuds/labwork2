@@ -157,7 +157,7 @@ namespace FirstLabWork
             return sum;
         }
 
-        private double getLaplasFunctionValue(double argument)
+        public double getLaplasFunctionValue(double argument)
         {
             convertTableIntoHash();
             double leftBorder = 0, rightBorder = 0;
