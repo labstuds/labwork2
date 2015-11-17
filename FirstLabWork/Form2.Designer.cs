@@ -37,7 +37,6 @@
             this.showGraphicsButton = new System.Windows.Forms.Button();
             this.cbGraphKind = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +62,8 @@
             this.m_i_star = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.cbAlphaValues = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbCritPoint = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntervals)).BeginInit();
@@ -80,10 +81,9 @@
             // 
             // btnGetIntervalSeriesTable
             // 
-            this.btnGetIntervalSeriesTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGetIntervalSeriesTable.Location = new System.Drawing.Point(218, 297);
+            this.btnGetIntervalSeriesTable.Location = new System.Drawing.Point(216, 315);
             this.btnGetIntervalSeriesTable.Name = "btnGetIntervalSeriesTable";
-            this.btnGetIntervalSeriesTable.Size = new System.Drawing.Size(338, 23);
+            this.btnGetIntervalSeriesTable.Size = new System.Drawing.Size(340, 23);
             this.btnGetIntervalSeriesTable.TabIndex = 5;
             this.btnGetIntervalSeriesTable.Text = "Извлечь интервальный ряд распределения частот";
             this.btnGetIntervalSeriesTable.UseVisualStyleBackColor = true;
@@ -91,8 +91,7 @@
             // 
             // calculateGroupedSeries
             // 
-            this.calculateGroupedSeries.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.calculateGroupedSeries.Location = new System.Drawing.Point(216, 326);
+            this.calculateGroupedSeries.Location = new System.Drawing.Point(216, 344);
             this.calculateGroupedSeries.Name = "calculateGroupedSeries";
             this.calculateGroupedSeries.Size = new System.Drawing.Size(340, 23);
             this.calculateGroupedSeries.TabIndex = 6;
@@ -102,8 +101,7 @@
             // 
             // calculateChars
             // 
-            this.calculateChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.calculateChars.Location = new System.Drawing.Point(216, 355);
+            this.calculateChars.Location = new System.Drawing.Point(216, 373);
             this.calculateChars.Name = "calculateChars";
             this.calculateChars.Size = new System.Drawing.Size(340, 23);
             this.calculateChars.TabIndex = 7;
@@ -161,20 +159,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(218, 155);
+            this.label4.Location = new System.Drawing.Point(331, 155);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(332, 13);
+            this.label4.Size = new System.Drawing.Size(97, 13);
             this.label4.TabIndex = 23;
-            this.label4.Text = "Построение графиков и эмпирической функции распределения";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(218, 196);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(214, 13);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Работа с рядами и их характеристиками";
+            this.label4.Text = "Выберите график";
             // 
             // menuStrip1
             // 
@@ -231,7 +220,7 @@
             this.dgvHi.Location = new System.Drawing.Point(753, 56);
             this.dgvHi.Name = "dgvHi";
             this.dgvHi.ReadOnly = true;
-            this.dgvHi.Size = new System.Drawing.Size(345, 322);
+            this.dgvHi.Size = new System.Drawing.Size(345, 340);
             this.dgvHi.TabIndex = 27;
             // 
             // label6
@@ -247,7 +236,7 @@
             // tbK
             // 
             this.tbK.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tbK.Location = new System.Drawing.Point(398, 212);
+            this.tbK.Location = new System.Drawing.Point(398, 228);
             this.tbK.Name = "tbK";
             this.tbK.ReadOnly = true;
             this.tbK.Size = new System.Drawing.Size(158, 20);
@@ -256,7 +245,7 @@
             // tbHiObs
             // 
             this.tbHiObs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tbHiObs.Location = new System.Drawing.Point(398, 238);
+            this.tbHiObs.Location = new System.Drawing.Point(399, 258);
             this.tbHiObs.Name = "tbHiObs";
             this.tbHiObs.ReadOnly = true;
             this.tbHiObs.Size = new System.Drawing.Size(158, 20);
@@ -265,7 +254,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(215, 215);
+            this.label7.Location = new System.Drawing.Point(216, 228);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(145, 13);
             this.label7.TabIndex = 31;
@@ -274,7 +263,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(215, 241);
+            this.label8.Location = new System.Drawing.Point(216, 261);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(177, 13);
             this.label8.TabIndex = 32;
@@ -292,7 +281,7 @@
             this.dgvIntervals.MultiSelect = false;
             this.dgvIntervals.Name = "dgvIntervals";
             this.dgvIntervals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIntervals.Size = new System.Drawing.Size(198, 263);
+            this.dgvIntervals.Size = new System.Drawing.Size(198, 310);
             this.dgvIntervals.TabIndex = 33;
             // 
             // LeftBorder
@@ -319,7 +308,7 @@
             // btnRemoveInterval
             // 
             this.btnRemoveInterval.Enabled = false;
-            this.btnRemoveInterval.Location = new System.Drawing.Point(130, 325);
+            this.btnRemoveInterval.Location = new System.Drawing.Point(130, 373);
             this.btnRemoveInterval.Name = "btnRemoveInterval";
             this.btnRemoveInterval.Size = new System.Drawing.Size(80, 23);
             this.btnRemoveInterval.TabIndex = 35;
@@ -329,7 +318,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 325);
+            this.btnAdd.Location = new System.Drawing.Point(12, 373);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(112, 23);
             this.btnAdd.TabIndex = 36;
@@ -347,7 +336,7 @@
             this.dgvGroupedSeries.Location = new System.Drawing.Point(562, 56);
             this.dgvGroupedSeries.Name = "dgvGroupedSeries";
             this.dgvGroupedSeries.ReadOnly = true;
-            this.dgvGroupedSeries.Size = new System.Drawing.Size(185, 322);
+            this.dgvGroupedSeries.Size = new System.Drawing.Size(185, 340);
             this.dgvGroupedSeries.TabIndex = 37;
             // 
             // X_star
@@ -367,7 +356,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(218, 270);
+            this.label9.Location = new System.Drawing.Point(216, 203);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(143, 13);
             this.label9.TabIndex = 38;
@@ -378,16 +367,36 @@
             this.cbAlphaValues.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAlphaValues.Enabled = false;
             this.cbAlphaValues.FormattingEnabled = true;
-            this.cbAlphaValues.Location = new System.Drawing.Point(398, 270);
+            this.cbAlphaValues.Location = new System.Drawing.Point(399, 200);
             this.cbAlphaValues.Name = "cbAlphaValues";
             this.cbAlphaValues.Size = new System.Drawing.Size(158, 21);
             this.cbAlphaValues.TabIndex = 39;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(216, 292);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 13);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Критическая точка";
+            // 
+            // tbCritPoint
+            // 
+            this.tbCritPoint.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbCritPoint.Location = new System.Drawing.Point(399, 289);
+            this.tbCritPoint.Name = "tbCritPoint";
+            this.tbCritPoint.ReadOnly = true;
+            this.tbCritPoint.Size = new System.Drawing.Size(158, 20);
+            this.tbCritPoint.TabIndex = 40;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 390);
+            this.ClientSize = new System.Drawing.Size(1110, 404);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbCritPoint);
             this.Controls.Add(this.cbAlphaValues);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dgvGroupedSeries);
@@ -400,7 +409,6 @@
             this.Controls.Add(this.tbK);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvHi);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.showGraphicsButton);
             this.Controls.Add(this.cbGraphKind);
@@ -412,8 +420,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(1126, 429);
-            this.MinimumSize = new System.Drawing.Size(1126, 429);
+            this.MaximumSize = new System.Drawing.Size(1126, 443);
+            this.MinimumSize = new System.Drawing.Size(1126, 443);
             this.Name = "Form2";
             this.Text = "Обработка интервального ряда частот";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -438,7 +446,6 @@
         private System.Windows.Forms.Button showGraphicsButton;
         private System.Windows.Forms.ComboBox cbGraphKind;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog ofdLaplas;
@@ -464,6 +471,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn m_i_star;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbAlphaValues;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbCritPoint;
 
     }
 }

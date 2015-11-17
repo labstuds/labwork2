@@ -386,11 +386,17 @@ namespace FirstLabWork
                 tbK.Text = k.ToString();
                 double significanceLevel = Convert.ToDouble(cbAlphaValues.SelectedValue);
                 // Проверить гипотезу
-                NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable, currentHiTable);                                
+                NormalLawHypotesisCheck nrmLawCheck = new NormalLawHypotesisCheck(LaplasTable, currentHiTable);
                 if (nrmLawCheck.doCheck(significanceLevel, intSeries))
+                {
                     MessageBox.Show("Гипотеза о нормальном законе распределения не опровергается");
+                    tbCritPoint.Text = nrmLawCheck.HiCritical.ToString();
+                }
                 else
+                {
                     MessageBox.Show("Гипотеза о нормальном законе распределения опровергается");
+                    tbCritPoint.Text = "Гипотеза опровергнута";
+                }
                 tbHiObs.Text = nrmLawCheck.HiObserved.ToString();
             }
         }
@@ -410,12 +416,12 @@ namespace FirstLabWork
                if (expLawCheck.doCheck(significanceLevel, intSeries))
                {
                    MessageBox.Show("Гипотеза о показательном законе распределения не опровергается");
-                   
+                   tbCritPoint.Text = expLawCheck.HiCritical.ToString();
                }
                else
                {
                    MessageBox.Show("Гипотеза о показательном законе распределения опровергается");
-                   //tbHiObs.Text = "Гипотеза опровергнута";
+                   tbCritPoint.Text = "Гипотеза опровергнута";
                }
                tbHiObs.Text = expLawCheck.HiObserved.ToString();
                    
@@ -482,8 +488,8 @@ namespace FirstLabWork
             {
                 double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquare(groupedSeries.SeriesTable);
                 double dispersion = SeriesCharacteristics.calculateDispersion(groupedSeries.SeriesTable);
-                double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);                
-                characteristicsLabel.Text = String.Format("Выборочное среднее квадратическое {0:f4}\n\rВыборочное среднее {1:f4}\n\rДисперсия {2:f4}\n\r", sampleMeanSquare, sampleMean, dispersion, (int)rNumber.Value, centralSamplingPoint);
+                double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
+                characteristicsLabel.Text = String.Format("Выборочное среднее квадратическое {0:f4}\n\rВыборочное среднее {1:f4}\n\rДисперсия {2:f4}\n\r", sampleMeanSquare, sampleMean, dispersion);
             }
             else
             {
