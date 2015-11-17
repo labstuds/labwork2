@@ -483,7 +483,7 @@ namespace FirstLabWork
                 double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquare(groupedSeries.SeriesTable);
                 double dispersion = SeriesCharacteristics.calculateDispersion(groupedSeries.SeriesTable);
                 double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);                
-                characteristicsLabel.Text = String.Format("Средневыборочное квадратическое {0:f4}\n\rСредневыборочное {1:f4}\n\rДисперсия {2:f4}\n\r", sampleMeanSquare, sampleMean, dispersion, (int)rNumber.Value, centralSamplingPoint);
+                characteristicsLabel.Text = String.Format("Выборочное среднее квадратическое {0:f4}\n\rВыборочное среднее {1:f4}\n\rДисперсия {2:f4}\n\r", sampleMeanSquare, sampleMean, dispersion, (int)rNumber.Value, centralSamplingPoint);
             }
             else
             {
