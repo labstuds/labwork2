@@ -203,6 +203,7 @@ namespace FirstLabWork
         // Для чтения таблицы значений критерия Пирсона
         public void readTable()
         {
+            ofdHi.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
             // Открыть окно загрузки
             if (ofdHi.ShowDialog() != DialogResult.OK)
                 return;
@@ -265,6 +266,7 @@ namespace FirstLabWork
 
         private void загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ofdLaplas.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
             // Открыть окно загрузки
             if (ofdLaplas.ShowDialog() != DialogResult.OK)
                 return;
