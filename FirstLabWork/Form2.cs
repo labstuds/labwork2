@@ -482,10 +482,8 @@ namespace FirstLabWork
             {
                 double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquare(groupedSeries.SeriesTable);
                 double dispersion = SeriesCharacteristics.calculateDispersion(groupedSeries.SeriesTable);
-                double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
-                double centralSamplingPoint = SeriesCharacteristics.calculateCentralSamplingPoint(groupedSeries.SeriesTable, (double)rNumber.Value);
-                double initialSamplingPoint = SeriesCharacteristics.calculateInitialSamplingPoint(groupedSeries.SeriesTable, (double)rNumber.Value);
-                characteristicsLabel.Text = String.Format("Средневыборочное квадратическое {0:f4}\n\rСредневыборочное {1:f4}\n\rДисперсия {2:f4}\n\rЦентр. выборочн. момент {3}: {4:f4}\n\rНачальный выборочный момент {5}: {6:f4}", sampleMeanSquare, sampleMean, dispersion, (int)rNumber.Value, centralSamplingPoint, (int)rNumber.Value, initialSamplingPoint);
+                double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);                
+                characteristicsLabel.Text = String.Format("Средневыборочное квадратическое {0:f4}\n\rСредневыборочное {1:f4}\n\rДисперсия {2:f4}\n\r", sampleMeanSquare, sampleMean, dispersion, (int)rNumber.Value, centralSamplingPoint);
             }
             else
             {
@@ -525,6 +523,11 @@ namespace FirstLabWork
             formula_k.ReshowDelay = 500;
             formula_k.ShowAlways = true;                        
             formula_k.SetToolTip(this.tbK, "k = n - r - 1\nk - Число степеней свободы\nn - Число интервалов\nr - Число параметров закона распределения");        
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,13 +34,10 @@
             this.calculateChars = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.characteristicsLabel = new System.Windows.Forms.Label();
-            this.rNumber = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.showGraphicsButton = new System.Windows.Forms.Button();
             this.cbGraphKind = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.helpButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проверитьГипотезуОЗаконеРаспределенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +63,6 @@
             this.m_i_star = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.cbAlphaValues = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.rNumber)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntervals)).BeginInit();
@@ -96,9 +92,9 @@
             // calculateGroupedSeries
             // 
             this.calculateGroupedSeries.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.calculateGroupedSeries.Location = new System.Drawing.Point(218, 326);
+            this.calculateGroupedSeries.Location = new System.Drawing.Point(216, 326);
             this.calculateGroupedSeries.Name = "calculateGroupedSeries";
-            this.calculateGroupedSeries.Size = new System.Drawing.Size(338, 23);
+            this.calculateGroupedSeries.Size = new System.Drawing.Size(340, 23);
             this.calculateGroupedSeries.TabIndex = 6;
             this.calculateGroupedSeries.Text = "Рассчитать группированный ряд относительных частот";
             this.calculateGroupedSeries.UseVisualStyleBackColor = true;
@@ -107,9 +103,9 @@
             // calculateChars
             // 
             this.calculateChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.calculateChars.Location = new System.Drawing.Point(218, 355);
+            this.calculateChars.Location = new System.Drawing.Point(216, 355);
             this.calculateChars.Name = "calculateChars";
-            this.calculateChars.Size = new System.Drawing.Size(338, 23);
+            this.calculateChars.Size = new System.Drawing.Size(340, 23);
             this.calculateChars.TabIndex = 7;
             this.calculateChars.Text = "Рассчитать числовые характерстики";
             this.calculateChars.UseVisualStyleBackColor = true;
@@ -133,34 +129,6 @@
             this.characteristicsLabel.Size = new System.Drawing.Size(309, 13);
             this.characteristicsLabel.TabIndex = 10;
             this.characteristicsLabel.Text = "Здесь будут отображены значения характеристик выборки";
-            // 
-            // rNumber
-            // 
-            this.rNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rNumber.Location = new System.Drawing.Point(12, 358);
-            this.rNumber.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.rNumber.Name = "rNumber";
-            this.rNumber.Size = new System.Drawing.Size(136, 20);
-            this.rNumber.TabIndex = 11;
-            this.rNumber.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(154, 360);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "R";
             // 
             // showGraphicsButton
             // 
@@ -207,16 +175,6 @@
             this.label5.Size = new System.Drawing.Size(214, 13);
             this.label5.TabIndex = 24;
             this.label5.Text = "Работа с рядами и их характеристиками";
-            // 
-            // helpButton
-            // 
-            this.helpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.helpButton.Location = new System.Drawing.Point(175, 355);
-            this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(37, 23);
-            this.helpButton.TabIndex = 25;
-            this.helpButton.Text = "?";
-            this.helpButton.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -409,7 +367,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(213, 270);
+            this.label9.Location = new System.Drawing.Point(218, 270);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(143, 13);
             this.label9.TabIndex = 38;
@@ -420,7 +378,7 @@
             this.cbAlphaValues.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAlphaValues.Enabled = false;
             this.cbAlphaValues.FormattingEnabled = true;
-            this.cbAlphaValues.Location = new System.Drawing.Point(398, 267);
+            this.cbAlphaValues.Location = new System.Drawing.Point(398, 270);
             this.cbAlphaValues.Name = "cbAlphaValues";
             this.cbAlphaValues.Size = new System.Drawing.Size(158, 21);
             this.cbAlphaValues.TabIndex = 39;
@@ -442,13 +400,10 @@
             this.Controls.Add(this.tbK);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvHi);
-            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.showGraphicsButton);
             this.Controls.Add(this.cbGraphKind);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.rNumber);
             this.Controls.Add(this.characteristicsLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.calculateChars);
@@ -462,7 +417,6 @@
             this.Name = "Form2";
             this.Text = "Обработка интервального ряда частот";
             this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rNumber)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHi)).EndInit();
@@ -481,13 +435,10 @@
         private System.Windows.Forms.Button calculateChars;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label characteristicsLabel;
-        private System.Windows.Forms.NumericUpDown rNumber;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button showGraphicsButton;
         private System.Windows.Forms.ComboBox cbGraphKind;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem загрузитьТаблицуЗначенийФункцииЛапласаToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog ofdLaplas;

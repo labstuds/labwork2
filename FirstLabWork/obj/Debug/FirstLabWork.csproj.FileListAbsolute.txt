@@ -180,3 +180,4 @@ D:\Repos\labwork2teorver\FirstLabWork\obj\Debug\FirstLabWork.Form1.resources
 D:\Repos\labwork2teorver\FirstLabWork\obj\Debug\FirstLabWork.Form2.resources
 D:\Repos\labwork2teorver\FirstLabWork\obj\Debug\FirstLabWork.Properties.Resources.resources
 D:\Repos\labwork2teorver\FirstLabWork\obj\Debug\FirstLabWork.csproj.GenerateResource.Cache
+c:\work\_git\labwork2\FirstLabWork\obj\Debug\FirstLabWork.CheckDistributionForm.resources
