@@ -78,9 +78,9 @@ namespace FirstLabWork
             bool tableIsValid = true;            
             double oldRghtBrdr = 0;
             double bordersDifference = 0; // Разница между интервалами
-            if (dgvIntervals.Rows.Count < 2)
+            if (dgvIntervals.Rows.Count < 4)
             {
-                MessageBox.Show("Введите как минимум 2 интервала");
+                MessageBox.Show("Введите как минимум 4 интервала");
                 tableIsValid = false;
             }
             else
