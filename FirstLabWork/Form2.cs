@@ -109,11 +109,11 @@ namespace FirstLabWork
             if (tableIsValid)
             {
                 if (i == 0)
-                    bordersDifference = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
+                    bordersDifference = Math.Abs(Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value));
                 else
                 {
-                    double currentBordersDifference = Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value);
-                    if (bordersDifference != currentBordersDifference)
+                    double currentBordersDifference = Math.Abs(Convert.ToDouble(dgvIntervals.Rows[i].Cells[1].Value) - Convert.ToDouble(dgvIntervals.Rows[i].Cells[0].Value));
+                    if (Math.Abs(Math.Round(bordersDifference, 5)) != Math.Abs(Math.Round(currentBordersDifference, 5)))
                     {
                         tableIsValid = false;
                         MessageBox.Show("Обнаружен непропорциональный интервал");
@@ -402,13 +402,23 @@ namespace FirstLabWork
                int k = intSeries.SeriesTable.Count - 2;
                tbK.Text = k.ToString();
                double significanceLevel = Convert.ToDouble(cbAlphaValues.SelectedValue);
+               if (intervalsGridIsCorrect())
+                    readIntervalsGrid();
+                
                // Проверить гипотезу
                ExponentialLawCheck expLawCheck = new ExponentialLawCheck(currentHiTable);
                if (expLawCheck.doCheck(significanceLevel, intSeries))
+               {
                    MessageBox.Show("Гипотеза о показательном законе распределения не опровергается");
+                   
+               }
                else
+               {
                    MessageBox.Show("Гипотеза о показательном законе распределения опровергается");
+                   //tbHiObs.Text = "Гипотеза опровергнута";
+               }
                tbHiObs.Text = expLawCheck.HiObserved.ToString();
+                   
            }
         }
 
@@ -456,6 +466,7 @@ namespace FirstLabWork
         private void visualizeGroupedSeries()
         {
             int i = 0;
+            dgvGroupedSeries.Rows.Clear();
             foreach (KeyValuePair<double, double> pair in groupedSeries.SeriesTable)
             {
                 dgvGroupedSeries.Rows.Add();

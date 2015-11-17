@@ -27,13 +27,21 @@ namespace FirstLabWork
             rightBorder = m + 3 * sq;
             double step = 6 * sq / 20;
             double currentPosition = leftBorder;
+            double coeff = 2;
+            if (leftBorder < 0)
+                coeff = 1;
             SortedDictionary<double, double> distr = new SortedDictionary<double, double>();
             for (int i = 0; i < 20; i++)
             {
-                distr.Add(currentPosition, 2*(1/(sq*Math.Sqrt(2*Math.PI)))*Math.Pow(Math.E,(-Math.Pow(currentPosition-m,2))/(2*Math.Pow(sq,2))));
+                double firstFraction = 1/(sq*Math.Sqrt(2*Math.PI));
+                double expValueNum = Math.Pow((currentPosition-m),2);
+                double expValueDen = 2*dispertion;
+                double expValue=-expValueNum/expValueDen;
+                distr.Add(currentPosition, firstFraction*Math.Exp(expValue));
                 currentPosition += step;
             }
             draw_distribution(distr, "График теоретической плотности распределения", m, sq, Color.FromArgb(255, 255, 255, 0));
+            graphTheor.GraphPane.Title.Text = "Полигон отн. частот и график плотности нормального распределения";
         }
 
         public void drawExpDistribution(double dispertion, double sq, double m)
@@ -50,6 +58,7 @@ namespace FirstLabWork
                 currentPosition += step;
             }
             draw_distribution(distr, "График теоретической плотности распределения", m, sq, Color.FromArgb(255,255,0,0));
+            graphTheor.GraphPane.Title.Text = "Полигон отн. частот и график плотности показательного распределения";
         }
 		#region GRAPHICS
 
@@ -57,7 +66,7 @@ namespace FirstLabWork
         public void draw_distribution(SortedDictionary<double, double> distr, String distLabel, double m, double sq, Color color)
 		{
             setup_graph(graphTheor);
-
+            
 			//Построение полигона
             var pane = graphTheor.GraphPane;
 			SymbolType type = SymbolType.Default;

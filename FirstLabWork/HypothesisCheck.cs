@@ -76,7 +76,7 @@ namespace FirstLabWork
     /// </summary>
     class NormalLawHypotesisCheck : HypothesisCheck 
     {
-        Dictionary<double, double> laplasDictionary;
+        Dictionary<double, double> laplasDictionary=new Dictionary<double,double>();
         private List<double[]> laplasTable = new List<double[]>();
         public List<double[]> LaplasTable
         {
@@ -88,7 +88,8 @@ namespace FirstLabWork
         public NormalLawHypotesisCheck(List<double[]> laplasTable, HiCritTable hiCritValuesTable)
         {
             this.laplasTable = laplasTable;
-            this.hiCritValuesTable = hiCritValuesTable;            
+            this.hiCritValuesTable = hiCritValuesTable;
+            convertTableIntoHash();
         }
         public override bool doCheck(double significanceLevel, IntervalVariationStatisticSeries intSeries)
         {
@@ -132,10 +133,11 @@ namespace FirstLabWork
                     firstArg = pair.Key.RightBorder;
                     secondArg = pair.Key.LeftBorder;
                 }               
-                if (secondArg < 0)
-                    probabilities.Add(Math.Round(getLaplasFunctionValue(secondArg) - getLaplasFunctionValue(firstArg), 3));
-                else
+                //if (secondArg < 0)
+                 //   probabilities.Add(Math.Round(getLaplasFunctionValue(secondArg) - getLaplasFunctionValue(firstArg), 3));
+                //else if(firstArg < 0)
                     probabilities.Add(Math.Round(getLaplasFunctionValue(firstArg) - getLaplasFunctionValue(secondArg), 3));
+
                 i++;
             }
             return probabilities;
@@ -159,7 +161,11 @@ namespace FirstLabWork
 
         public double getLaplasFunctionValue(double argument)
         {
-            convertTableIntoHash();
+            double coeff = 1;
+            if (argument < 0)
+                coeff = -1;
+
+            argument = Math.Abs(argument);
             double leftBorder = 0, rightBorder = 0;
             double result = -1;
             foreach (KeyValuePair<double,double> pair in laplasDictionary)      
@@ -171,11 +177,11 @@ namespace FirstLabWork
                 else if (pair.Key > argument)
                 {
                     rightBorder = pair.Key;
-                    return linearInterpolation(leftBorder, rightBorder, argument,laplasDictionary);
+                    return coeff*linearInterpolation(leftBorder, rightBorder,argument,laplasDictionary);
                 }
                 else
                 {
-                    return pair.Value;
+                    return coeff*pair.Value;
                 }
             }
             return result;
@@ -183,9 +189,14 @@ namespace FirstLabWork
 
         void convertTableIntoHash()
         {
-            foreach (double[] pair in laplasTable)
+            int i = 0;
+            /*foreach (double[] pair in laplasTable)
             {
-                laplasDictionary.Add(pair[0], pair[1]);
+                laplasDictionary.Add(pair[0], pair[1]);i++;
+            }*/
+            for(int j=0;j<laplasTable.Count;j++)
+            {
+                laplasDictionary.Add(laplasTable[j][0], laplasTable[j][1]);
             }
         }
 
@@ -257,8 +268,8 @@ namespace FirstLabWork
             int i = 0;
             foreach(KeyValuePair<LinearInterval, double> pair in intSeries.SeriesTable)
             {
-                theoryFreq = pair.Value * probabilities[i];
-                hiObserved += Math.Pow(pair.Value - theoryFreq, 2) / Math.Pow(theoryFreq, 2);
+                theoryFreq = intSeries.SeriesTableFreqSum * probabilities[i];
+                hiObserved += Math.Pow(pair.Value - theoryFreq, 2) / theoryFreq;
                 i++;
             }
             return hiObserved;
