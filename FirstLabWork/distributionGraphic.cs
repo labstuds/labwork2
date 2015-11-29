@@ -37,7 +37,7 @@ namespace FirstLabWork
                 double expValueNum = Math.Pow((currentPosition-m),2);
                 double expValueDen = 2*dispertion;
                 double expValue=-expValueNum/expValueDen;
-                distr.Add(currentPosition, firstFraction*Math.Exp(expValue));
+                distr.Add(currentPosition, 3*firstFraction*Math.Exp(expValue));
                 currentPosition += step;
             }
             draw_distribution(distr, "График теоретической плотности распределения", m, sq, Color.FromArgb(255, 255, 255, 0));

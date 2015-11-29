@@ -376,13 +376,21 @@ namespace FirstLabWork
             double result = 0;
             foreach(KeyValuePair<double,double> pair in seriesTable)
             {
-                result += Math.Pow((pair.Key - sm),2) * pair.Value;
+                result += Math.Pow((pair.Key - sm),2)*pair.Value;
             }
             return result;
         }
         static public double calculateSampleMeanSquare(SortedDictionary<double, double> series)
         {
-            return Math.Sqrt(calculateDispersion(series));
+            double result = 0;
+            double sm = calculateSampleMean(series);
+            foreach (KeyValuePair<double, double> pair in series)
+            {
+                result += Math.Pow((pair.Key - sm), 2);
+            }
+            result /= series.Count;
+            result = Math.Sqrt(result);
+            return result;
         }
         static public double calculateInitialSamplingPoint(SortedDictionary<double, double> seriesTable, double r)
         {
