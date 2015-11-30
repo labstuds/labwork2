@@ -383,16 +383,7 @@ namespace FirstLabWork
         
         static public double calculateSampleMeanSquareNew(SortedDictionary<double, double> series)
         {
-            
-            double result = 0;
-            double sm = calculateSampleMean(series);
-            foreach (KeyValuePair<double, double> pair in series)
-            {
-                result += Math.Pow((pair.Key - sm), 2);
-            }
-            result /= series.Count;
-            result = Math.Sqrt(result);            
-            return result;        
+            return Math.Sqrt(calculateDispersion(series));   
         }
         
         static public double calculateSampleMeanSquare(SortedDictionary<double, double> series)
