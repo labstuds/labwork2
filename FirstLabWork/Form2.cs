@@ -349,7 +349,7 @@ namespace FirstLabWork
                         if (groupedSeries != null)
                         {
                             CheckDistributionForm wnd = new CheckDistributionForm();
-                            double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquare(groupedSeries.SeriesTable);
+                            double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquareNew(groupedSeries.SeriesTable);
                             double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
                             double dispersion = SeriesCharacteristics.calculateDispersion(groupedSeries.SeriesTable);
                             wnd.draw_distribution(groupedSeries.SeriesTable, "Выборка", sampleMean, sampleMeanSquare, Color.FromArgb(255,255,0,255));
@@ -363,7 +363,7 @@ namespace FirstLabWork
                         if (groupedSeries != null)
                         {
                             CheckDistributionForm wnd = new CheckDistributionForm();
-                            double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquare(groupedSeries.SeriesTable);
+                            double sampleMeanSquare = SeriesCharacteristics.calculateSampleMeanSquareNew(groupedSeries.SeriesTable);
                             double sampleMean = SeriesCharacteristics.calculateSampleMean(groupedSeries.SeriesTable);
                             double dispersion = SeriesCharacteristics.calculateDispersion(groupedSeries.SeriesTable);
                             wnd.draw_distribution(groupedSeries.SeriesTable, "Выборка", sampleMean, sampleMeanSquare, Color.FromArgb(255,255,0,255));
